@@ -45,6 +45,28 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        public void Add(UserProfile userProfile)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO UserProfile (FirstName, LastName, UserName, Email, FirebaseUserId, DateCreated)
+                        OUTPUT INSERTED.ID
+                        VALUES (@firstName, @lastName, @userName, @email, @firebaseUserId, @dateCreated)";
 
+                    DbUtils.AddParameter(cmd, "@firstName", userProfile.FirstName);
+                    DbUtils.AddParameter(cmd, "@lastName", userProfile.LastName);
+                    DbUtils.AddParameter(cmd, "@userName", userProfile.UserName);
+                    DbUtils.AddParameter(cmd, "@email", userProfile.Email);
+                    DbUtils.AddParameter(cmd, "@firebaseUserId", userProfile.FirebaseUserId);
+                    DbUtils.AddParameter(cmd, "@dateCreated", userProfile.DateCreated);
+
+                    userProfile.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
     }
 }
