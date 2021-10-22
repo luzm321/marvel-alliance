@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MarvelAlliance.Repositories;
 using MarvelAlliance.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace MarvelAlliance.Controllers
 {
@@ -16,9 +17,36 @@ namespace MarvelAlliance.Controllers
     public class DeckController : ControllerBase
     {
         private readonly IDeckRepository _deckRepository;
-        public DeckController(IDeckRepository deckRepository)
+        private readonly IUserProfileRepository _userProfileRepository;
+
+        public DeckController(IDeckRepository deckRepository, IUserProfileRepository userProfileRepository)
         {
             _deckRepository = deckRepository;
+            _userProfileRepository = userProfileRepository;
+        }
+
+        //https://localhost:5001/api/deck
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_deckRepository.GetAll());
+        }
+
+        //https://localhost:5001/api/deck/myDecks
+        [HttpGet("myDecks")]
+        public IActionResult GetCurrentUserDecks()
+        {
+            string fireBaseId = GetCurrentUserFirebaseId();
+            var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
+            var userDecks = _deckRepository.GetDecksByCurrentUser(currentUser.Id);
+            return Ok(userDecks);
+        }
+
+        // Retrieve FirebaseUserId (string)
+        private string GetCurrentUserFirebaseId()
+        {
+            string firebaseUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return firebaseUserId;
         }
     }
 }
