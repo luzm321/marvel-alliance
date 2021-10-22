@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MarvelAlliance.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserProfileController : ControllerBase
@@ -19,6 +19,13 @@ namespace MarvelAlliance.Controllers
         public UserProfileController(IUserProfileRepository userProfileRepository)
         {
             _userProfileRepository = userProfileRepository;
+        }
+
+        //https://localhost:5001/api/userprofile
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_userProfileRepository.GetAll());
         }
 
         //https://localhost:5001/api/userprofile/id

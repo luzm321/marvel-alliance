@@ -1,0 +1,41 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@200&family=Kaushan+Script&display=swap"); */
+
+* {
+  /* font-family: 'Gluten', cursive; */
+  font-family: "Kaushan Script", cursive;
+}
+
+.labelReg {
+  font-size: 20px;
+  font-weight: bold;
+  /* color: rgb(59, 80, 66); */
+  color: black;
+  font-family: "Kaushan Script", cursive;
+}
+
+.inputReg {
+  font-size: 25px;
+  font-family: "Kaushan Script", cursive;
+}
+
+.regBgd {
+  /* background-image: url("https://wallpaperaccess.com/full/238182.jpg"); */
+  /* background-image: url("https://images.hdqwalls.com/download/avengers-endgame-minimal-jz-2560x1440.jpg"); */
+  /* background-image: url("https://img2.wallspic.com/originals/2/3/4/2/62432-event-performing_arts-stage-spider_man-entertainment-3840x2160.jpg?attachment=1"); */
+  /* background-image: url("https://i.pinimg.com/originals/87/18/52/8718522af1791d7807bee5fa04e77834.jpg"); */
+  /* background-image: url("https://wallpaperaccess.com/full/1106621.jpg"); */
+  background-image: url("https://wallpaperaccess.com/full/1106621.jpg");
+  min-height: 630px;
+  /* min-width: 100%;
+  min-height: 100%; */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fieldReg {
+  background-color: rgb(216, 211, 211);
+  padding: 3em 3em 0em 3em;
+  border-radius: 10px;
+}
