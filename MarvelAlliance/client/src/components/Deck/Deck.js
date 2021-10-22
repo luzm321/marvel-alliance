@@ -1,23 +1,23 @@
 import React from "react";
+import "./Deck.css";
 
 const Deck = ({ deck }) => {
   return (
-    <div>
-        <div class="card">
+    <div className="deckBox">
+        <div class="card deckContainer">
             <header class="card-header">
-                <p class="card-header-title">
+                <p class="card-header-title cardHeader">
                 {deck.title}
                 </p>
-                <button class="card-header-icon" aria-label="more options">
+                {/* <button class="card-header-icon" aria-label="more options">
                 <span class="icon">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
-                </button>
+                </button> */}
             </header>
             <div class="card-content">
-                <div class="content">
-                    {deck.details}
-                    <a href="#">#Marvel Alliance</a>             
+                <div class="content cardContent">
+                    {deck.details}           
                 </div>
             </div>
             <footer class="card-footer">

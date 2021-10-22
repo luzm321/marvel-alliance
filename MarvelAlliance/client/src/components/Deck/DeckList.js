@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Deck from "./Deck";
+import "./Deck.css"
 import { getCurrentUserDecks } from "../../modules/deckManager";
 
 const DeckList = () => {
@@ -22,8 +23,8 @@ const DeckList = () => {
     <div>
         <img className="myDecksLogo" src="./images/myDecksLogo.PNG" alt="My Decks" />
         <div className="decks">
-            <div className="">
-                {console.log(decks)}
+            <div className="deckComponent">
+                {console.log('decks', decks)}
                 {decks.map((deck) => (
                     <Deck deck={deck} key={deck.id} />
                 ))}
