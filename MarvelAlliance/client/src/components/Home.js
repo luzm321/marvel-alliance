@@ -2,6 +2,7 @@ import { UserWelcome } from "./UserWelcome";
 import React, { useState, useEffect } from "react";
 import { getUsers } from "../modules/authManager";
 import "./Home.css";
+import ImageGallery from "./ImageGallery";
 
 
 const Home = () => {
@@ -19,14 +20,19 @@ const Home = () => {
 
     return (
         <div className="homeBgd">
-            {console.log('users', users)}
-            {
-                users.map(user => {
-                    if(localStorage.getItem("userEmail") === user.email) {
-                        return <UserWelcome user={user.userName} />
-                    }
-                })
-            }
+            <div>
+                {console.log('users', users)}
+                {
+                    users.map(user => {
+                        if(localStorage.getItem("userEmail") === user.email) {
+                            return <UserWelcome user={user.userName} />
+                        }
+                    })
+                }
+            </div>
+            <div className="gallery">
+                <ImageGallery />
+            </div>
         </div>
     )
 };
