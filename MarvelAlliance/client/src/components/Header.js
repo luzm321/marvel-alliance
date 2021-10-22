@@ -23,11 +23,11 @@ const Header = ({ isLoggedIn }) => {
                 Home
               </Link>
             </li>
-            {/* <li className="navItem">
-              <Link to="" className="navLink">
+            <li className="myDecksNav">
+              <Link to="/myDecks" className="myDecksNavLink">
                 My Decks
               </Link>
-            </li> */}
+            </li>
           </ul>
           <Link to="/login">
             <Button variant="contained" color="error" aria-current="page" className="logOut"
