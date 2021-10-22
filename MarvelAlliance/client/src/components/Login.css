@@ -1,0 +1,77 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Gluten:wght@200&family=Kaushan+Script&display=swap"); */
+
+* {
+  /* font-family: 'Gluten', cursive; */
+  font-family: "Kaushan Script", cursive;
+}
+
+.avatar {
+  width: 200px;
+  height: auto;
+  margin-bottom: 3em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 65px;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+  /* border: 2px solid black; */
+}
+
+.reg {
+  /* color: rgb(228, 219, 219); */
+  color: black;
+}
+
+.regLink {
+  margin-top: 1.5em;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+  /* color: rgb(64, 114, 86); */
+  /* color: rgb(228, 219, 219); */
+  color: black;
+}
+
+.regLink:hover {
+  transform: scale(1.1);
+  color: rgb(64, 114, 86);
+  /* color: white;
+  border: solid 2px whitesmoke;
+  background-color: black; */
+}
+
+.label {
+  font-size: 20px;
+  font-weight: bold;
+  /* color: rgb(59, 80, 66); */
+  color: white;
+  font-family: "Kaushan Script", cursive;
+}
+
+.input {
+  font-size: 20px;
+  font-family: "Kaushan Script", cursive;
+}
+
+.loginBgd {
+  /* background-image: url("https://wallpaperaccess.com/full/238182.jpg"); */
+  /* background-image: url("https://images.hdqwalls.com/download/avengers-endgame-minimal-jz-2560x1440.jpg"); */
+  /* background-image: url("https://img2.wallspic.com/originals/2/3/4/2/62432-event-performing_arts-stage-spider_man-entertainment-3840x2160.jpg?attachment=1"); */
+  /* background-image: url("https://i.pinimg.com/originals/87/18/52/8718522af1791d7807bee5fa04e77834.jpg"); */
+  /* background-image: url("https://wallpaperaccess.com/full/1106621.jpg"); */
+  background-image: url("https://wallpaperaccess.com/full/1106621.jpg");
+  min-height: 630px;
+  /* min-width: 100%;
+  min-height: 100%; */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.field {
+  background-color: rgb(216, 211, 211);
+  padding: 1em;
+  border-radius: 10px;
+}
