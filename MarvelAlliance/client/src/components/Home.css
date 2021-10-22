@@ -8,3 +8,8 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.gallery {
+  margin: 17.5em 0em 2.2em 29em;
+  border-radius: 20px;
+}
