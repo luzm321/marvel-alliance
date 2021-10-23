@@ -6,17 +6,18 @@
 }
 
 .avatar {
-  width: 200px;
+  width: 180px;
   height: auto;
   margin-bottom: 3em;
+  margin-top: 3em;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  border-radius: 65px;
+  border-radius: 60px;
 }
 
 .avatar:hover {
   transform: scale(1.1);
-  /* border: 2px solid black; */
+  border: 2px solid black;
 }
 
 .reg {
@@ -61,7 +62,7 @@
   /* background-image: url("https://i.pinimg.com/originals/87/18/52/8718522af1791d7807bee5fa04e77834.jpg"); */
   /* background-image: url("https://wallpaperaccess.com/full/1106621.jpg"); */
   background-image: url("https://wallpaperaccess.com/full/1106621.jpg");
-  min-height: 630px;
+  min-height: 700px;
   /* min-width: 100%;
   min-height: 100%; */
   background-attachment: fixed;
@@ -74,4 +75,5 @@
   background-color: rgb(216, 211, 211);
   padding: 1em;
   border-radius: 10px;
+  margin-bottom: 2em;
 }

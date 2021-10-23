@@ -13,3 +13,17 @@ html {
   margin: 17.5em 0em 2.2em 29em;
   border-radius: 20px;
 }
+
+/* .marvelLogo {
+  width: 120px;
+  height: 100px;
+  margin: 1.5em 85em -2em 0em;
+  transition: all 0.2s ease-in-out;
+  mix-blend-mode: luminosity;
+  border-radius: 35px;
+}
+
+.marvelLogo:hover {
+  transform: scale(1.2);
+  border: solid 2px black;
+} */

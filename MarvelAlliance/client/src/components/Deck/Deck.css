@@ -1,0 +1,38 @@
+.myDecksLogo {
+  mix-blend-mode: luminosity;
+  width: 400px;
+  height: 275px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 5em 0em;
+}
+
+.myDecksLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.deckBox {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.deckContainer {
+  width: 45%;
+  margin: auto;
+  margin-bottom: 4em;
+}
+
+.deckComponent {
+  display: flex;
+}
+
+.cardHeader {
+  margin-left: 3.1em;
+  font-size: 30px;
+}
+
+.cardContent {
+  font-size: 20px;
+}

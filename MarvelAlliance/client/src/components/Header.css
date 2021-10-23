@@ -1,6 +1,6 @@
 .signIn {
-  margin: 2em 1em 1em 3em;
-  font-size: 20px;
+  margin: 2em 0em 1em 1em;
+  font-size: 35px;
   transition: all 0.2s ease-in-out;
   /* color: rgb(64, 114, 86); */
   color: rgb(228, 219, 219);
@@ -13,7 +13,7 @@
 
 .register {
   margin: 2em 1em 1em 1em;
-  font-size: 20px;
+  font-size: 35px;
   transition: all 0.2s ease-in-out;
   /* color: rgb(64, 114, 86); */
   color: rgb(228, 219, 219);
@@ -24,30 +24,19 @@
   color: black;
 }
 
-.marvelLogo {
-  width: 200px;
-  height: auto;
-  margin: 1em;
-  transition: all 0.2s ease-in-out;
-  mix-blend-mode: luminosity;
-  border-radius: 35px;
-}
-
-.marvelLogo:hover {
-  transform: scale(1.1);
-}
+/* Home Page Styling */
 
 .navLink {
-  margin: 2em 2em 2em 2em;
-  font-size: 25px;
+  margin: 1em 1em 1em 1em;
+  font-size: 26px;
   /* color: rgb(64, 114, 86); */
-  color: whitesmoke;
+  color: rgb(26, 24, 24);
   transition: all 0.2s ease-in-out;
 }
 
 .navLink:hover {
   transform: scale(1.2);
-  color: rgb(17, 17, 17);
+  color: rgb(187, 48, 48);
 }
 
 .navLink::after {
@@ -55,19 +44,19 @@
   width: 0%;
   height: 2px;
   /* background: rgb(87, 117, 117); */
-  background: rgb(228, 219, 219);
+  background: rgb(27, 26, 26);
   display: block;
-  margin-left: 2em;
+  margin-left: 0em;
   transition: 0.5s;
   transform: skew(10deg, -7deg) scaleY(1.2);
 }
 
 .navLink:hover::after {
-  width: 55%;
+  width: 100%;
 }
 
 .navItem {
-  margin: 1.5em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
   transition: all 0.2s ease-in-out;
 }
 
@@ -75,19 +64,69 @@
   transform: scale(1.2);
 }
 
+/* Logout Button Styling */
+
 .logOut {
   cursor: pointer;
-  margin: 2em 1em 1em 1em;
+  margin: 2em -2em 1em 1em;
   font-family: "Kaushan Script", cursive;
 }
 
-.navbar {
-  background-image: url("https://wallpaperaccess.com/full/2193203.jpg");
-  /* min-height: 700px; */
-  min-width: 100%;
-  min-height: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* My Decks Background */
+
+.navBarContainer {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+/* My Decks Styling */
+
+.myDecksNavLink {
+  margin: 1em -3em 1em 1em;
+  font-size: 25px;
+  color: rgb(26, 24, 24);
+  transition: all 0.2s ease-in-out;
+}
+
+.myDecksNavLink:hover {
+  transform: scale(1.2);
+  color: rgb(187, 48, 48);
+}
+
+.myDecksNavLink::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: rgb(27, 26, 26);
+  display: block;
+  margin-left: 0em;
+  transition: 0.5s;
+  transform: skew(10deg, -7deg) scaleY(1.2);
+}
+
+.myDecksNavLink:hover::after {
+  width: 100%;
+}
+
+.myDecksNav {
+  margin: 0em 0em 0em -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+
+.myDecksNav:hover {
+  transform: scale(1.2);
+}
+
+.marvel-logo {
+  width: 120px;
+  height: 100px;
+  margin: 5px 5px 5px 5px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 35px;
+  mix-blend-mode: luminosity;
+}
+
+.marvel-logo:hover {
+  transform: scale(1.11);
 }
