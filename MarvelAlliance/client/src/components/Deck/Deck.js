@@ -4,9 +4,9 @@ import "./Deck.css";
 const Deck = ({ deck }) => {
   return (
     <div className="deckBox">
-        <div class="card deckContainer">
-            <header class="card-header">
-                <p class="card-header-title cardHeader">
+        <div className="card deckContainer">
+            <header className="card-header">
+                <p className="card-header-title cardHeader">
                 {deck.title}
                 </p>
                 {/* <button class="card-header-icon" aria-label="more options">
@@ -15,15 +15,15 @@ const Deck = ({ deck }) => {
                 </span>
                 </button> */}
             </header>
-            <div class="card-content">
-                <div class="content cardContent">
+            <div className="card-content">
+                <div className="content cardContent">
                     {deck.details}           
                 </div>
             </div>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Worthy</a>
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
+            <footer className="card-footer">
+                <a href="#" className="card-footer-item">Worthy</a>
+                <a href="#" className="card-footer-item">Edit</a>
+                <a href="#" className="card-footer-item">Delete</a>
             </footer>
         </div>           
     </div>
