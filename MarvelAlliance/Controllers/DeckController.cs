@@ -42,6 +42,17 @@ namespace MarvelAlliance.Controllers
             return Ok(userDecks);
         }
 
+        // 
+        [HttpPost]
+        public IActionResult Post(Deck deck)
+        {
+            string fireBaseId = GetCurrentUserFirebaseId();
+            var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
+            deck.UserProfileId = currentUser.Id;
+            _deckRepository.AddDeck(deck);
+            return CreatedAtAction("Get", new { id = deck.Id }, deck);
+        }
+
         // Retrieve FirebaseUserId (string)
         private string GetCurrentUserFirebaseId()
         {
