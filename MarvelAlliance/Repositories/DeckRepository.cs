@@ -67,6 +67,28 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Add New Deck:
+        public void AddDeck(Deck deck)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Deck (UserProfileId, Title, Details)
+                        OUTPUT INSERTED.ID
+                        VALUES (@userProfileId, @title, @details)";
+
+                    DbUtils.AddParameter(cmd, "@userProfileId", deck.UserProfileId);
+                    DbUtils.AddParameter(cmd, "@title", deck.Title);
+                    DbUtils.AddParameter(cmd, "@details", deck.Details);
+
+                    deck.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         // Private, abstracted helper method to retrieve new Deck from SqlDataReader
         private Deck NewDeckFromReader(SqlDataReader reader)
         {
