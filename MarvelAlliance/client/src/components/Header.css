@@ -1,6 +1,6 @@
 .signIn {
-  margin: 2em 1em 1em 3em;
-  font-size: 20px;
+  margin: 2em 0em 1em 1em;
+  font-size: 35px;
   transition: all 0.2s ease-in-out;
   /* color: rgb(64, 114, 86); */
   color: rgb(228, 219, 219);
@@ -13,7 +13,7 @@
 
 .register {
   margin: 2em 1em 1em 1em;
-  font-size: 20px;
+  font-size: 35px;
   transition: all 0.2s ease-in-out;
   /* color: rgb(64, 114, 86); */
   color: rgb(228, 219, 219);
@@ -124,6 +124,7 @@
   margin: 5px 5px 5px 5px;
   transition: all 0.2s ease-in-out;
   border-radius: 35px;
+  mix-blend-mode: luminosity;
 }
 
 .marvel-logo:hover {
