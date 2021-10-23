@@ -19,7 +19,8 @@ namespace MarvelAlliance.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"SELECT Id, UserProfileId, Title, Details
-                                        FROM Deck;";
+                                        FROM Deck
+                                        ORDER BY Title;";
 
                     var reader = cmd.ExecuteReader();
 

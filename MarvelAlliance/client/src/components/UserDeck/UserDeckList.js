@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Deck from "./Deck";
-import "./Deck.css"
+import UserDeck from "./UserDeck";
+import "./UserDeck.css"
 import { getCurrentUserDecks } from "../../modules/deckManager";
 
-const DeckList = () => {
+const UserDeckList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
     // that is set by what passed to the hook and a function/method that updates that state/variable
-  const [decks, setDecks] = useState([]);
+  const [userDecks, setUserDecks] = useState([]);
 
 
 
   const getUserDecks = () => {
-    getCurrentUserDecks().then(decks => setDecks(decks));
+    getCurrentUserDecks().then(userDecks => setUserDecks(userDecks));
   };
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const DeckList = () => {
         <img className="myDecksLogo" src="./images/myDecksLogo.PNG" alt="My Decks" />
         <div className="decks">
             <div className="deckComponent">
-                {console.log('decks', decks)}
-                {decks.map((deck) => (
-                    <Deck deck={deck} key={deck.id} />
+                {console.log('user decks', userDecks)}
+                {userDecks.map((userDeck) => (
+                    <UserDeck userDeck={userDeck} key={userDeck.id} />
                 ))}
             </div>
         </div>
@@ -34,4 +34,4 @@ const DeckList = () => {
   );
 };
 
-export default DeckList;
+export default UserDeckList;
