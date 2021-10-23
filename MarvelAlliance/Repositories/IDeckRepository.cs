@@ -7,5 +7,7 @@ namespace MarvelAlliance.Repositories
     {
         List<Deck> GetAll();
         List<Deck> GetDecksByCurrentUser(int currentUserId);
+
+
     }
 }

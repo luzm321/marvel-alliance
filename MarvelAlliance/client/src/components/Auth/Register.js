@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { register } from "../modules/authManager";
+import { register } from "../../modules/authManager";
 import { Button, FormGroup,  FormControl, FormLabel, TextField } from '@mui/material';
 import "./Register.css";
 

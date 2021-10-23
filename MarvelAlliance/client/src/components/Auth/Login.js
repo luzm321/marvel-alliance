@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { login } from "../modules/authManager";
+import { login } from "../../modules/authManager";
 import { Button, FormGroup,  FormControl, FormLabel, TextField } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
