@@ -21,6 +21,7 @@ const Header = ({ isLoggedIn }) => {
                         <img className="marvel-logo" src="./images/MarvelAllianceLogo.PNG" alt="Marvel Alliance" />
                       </Link>
                     </div>
+
                     <div className="navbar-item navItem">
                       <Link to="/" className="navLink">
                         Home
@@ -32,6 +33,12 @@ const Header = ({ isLoggedIn }) => {
                         My Decks
                       </Link>
                     </div>
+
+                    <div className="navbar-item publicDecksNav">
+                      <Link to="/publicDecks" className="publicDecksNavLink">
+                        Public Decks
+                      </Link>
+                    </div>
                 </div>
             </div>
           }
@@ -41,7 +48,7 @@ const Header = ({ isLoggedIn }) => {
               <div className="navbar-item">
               <Link to="/login">
                       <Button variant="contained" color="error" aria-current="page" className="logOut"
-                        style={{ margin: "0em 0em 0em 70em", fontFamily: "Kaushan Script, cursive" }} onClick={logout}>Logout</Button>
+                        style={{ margin: "0em 0em 0em 58em", fontFamily: "Kaushan Script, cursive" }} onClick={logout}>Logout</Button>
                         <IconButton style={{ fontFamily: "Kaushan Script, cursive" }} aria-label="exittoappicon" color="error">
                           <ExitToAppIcon />
                         </IconButton>

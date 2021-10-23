@@ -1,0 +1,39 @@
+.publicDecksLogo {
+  mix-blend-mode: luminosity;
+  width: 400px;
+  height: 275px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 5em 0em;
+}
+
+.publicDecksLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.publicDeckBox {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.publicDeckContainer {
+  width: 78%;
+  height: 80%;
+  margin: auto;
+  margin-bottom: 4.5em;
+}
+
+.publicDeckComponent {
+  display: flex;
+}
+
+.publicCardHeader {
+  margin-left: 4.3em;
+  font-size: 30px;
+}
+
+.publicCardContent {
+  font-size: 20px;
+}

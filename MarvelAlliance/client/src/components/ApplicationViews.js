@@ -3,7 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home";
-import DeckList from "./Deck/DeckList";
+import UserDeckList from "./UserDeck/UserDeckList";
+import PublicDeckList from "./PublicDeck/PublicDeckList";
 
 export default function ApplicationViews({ isLoggedIn }) {
 
@@ -15,7 +16,11 @@ export default function ApplicationViews({ isLoggedIn }) {
         </Route>
 
         <Route path="/myDecks" exact>
-          {isLoggedIn ? <DeckList /> : <Redirect to="/login" />}
+          {isLoggedIn ? <UserDeckList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/publicDecks" exact>
+          {isLoggedIn ? <PublicDeckList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">

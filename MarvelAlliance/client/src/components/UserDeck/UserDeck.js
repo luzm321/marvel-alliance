@@ -1,13 +1,13 @@
 import React from "react";
-import "./Deck.css";
+import "./UserDeck.css";
 
-const Deck = ({ deck }) => {
+const UserDeck = ({ userDeck }) => {
   return (
     <div className="deckBox">
         <div className="card deckContainer">
             <header className="card-header">
                 <p className="card-header-title cardHeader">
-                {deck.title}
+                {userDeck.title}
                 </p>
                 {/* <button class="card-header-icon" aria-label="more options">
                 <span class="icon">
@@ -17,7 +17,7 @@ const Deck = ({ deck }) => {
             </header>
             <div className="card-content">
                 <div className="content cardContent">
-                    {deck.details}           
+                    {userDeck.details}           
                 </div>
             </div>
             <footer className="card-footer">
@@ -30,4 +30,4 @@ const Deck = ({ deck }) => {
   );
 };
 
-export default Deck;
+export default UserDeck;
