@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
-import Home from "./Home";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
+import Home from "./Home/Home";
 import UserDeckList from "./UserDeck/UserDeckList";
 import PublicDeckList from "./PublicDeck/PublicDeckList";
 

@@ -1,6 +1,6 @@
 import { UserWelcome } from "./UserWelcome";
 import React, { useState, useEffect } from "react";
-import { getUsers } from "../modules/authManager";
+import { getUsers } from "../../modules/authManager";
 import "./Home.css";
 import ImageGallery from "./ImageGallery";
 

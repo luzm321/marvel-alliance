@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import ApplicationViews from "./components/ApplicationViews";
-import Header from "./components/Header";
+import Header from "./components/Nav/Header";
 import { onLoginStatusChange } from "./modules/authManager";
 import { CircularProgress } from '@mui/material';
 
