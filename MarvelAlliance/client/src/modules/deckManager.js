@@ -94,3 +94,15 @@ export const getDeckById = (id) => {
     });
   });
 };
+
+export const deleteDeck = (id) => {
+  return getToken().then((token) => {
+    return fetch(`${deckUrl}/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+  });
+};
