@@ -10,6 +10,6 @@ namespace MarvelAlliance.Repositories
         Deck GetDeckById(int id);
         void AddDeck(Deck deck);
         void UpdateDeck(Deck deck);
-
+        void DeleteDeck(int id);
     }
 }
