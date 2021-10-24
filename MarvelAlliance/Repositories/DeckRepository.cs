@@ -141,6 +141,24 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Delete Existing Deck:
+        public void DeleteDeck(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"DELETE FROM Deck
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         // Private, abstracted helper method to retrieve new Deck from SqlDataReader
         private Deck NewDeckFromReader(SqlDataReader reader)
         {
