@@ -20,7 +20,11 @@ export default function ApplicationViews({ isLoggedIn }) {
           {isLoggedIn ? <UserDeckList /> : <Redirect to="/login" />}
         </Route>
 
-        <Route path="/myDecks/deckForm" exact>
+        <Route path="/myDecks/create" exact>
+          {isLoggedIn ? <DeckForm /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/myDecks/edit/:deckId(\d+)" exact>
           {isLoggedIn ? <DeckForm /> : <Redirect to="/login" />}
         </Route>
 

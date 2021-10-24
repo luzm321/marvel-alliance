@@ -23,7 +23,7 @@ const UserDeckList = () => {
         <img className="myDecksLogo" src="./images/myDecksLogo.PNG" alt="My Decks" />
         <div className="addDeckDiv">
           <button className="button is-light is-outlined is-rounded addDeckBut" 
-            onClick={() => {history.push("/myDecks/deckForm")}}>
+            onClick={() => {history.push("/myDecks/create")}}>
                 Assemble Deck <img className="createIcon" src="https://media.magic.wizards.com/C19-Icons_Deck.png"/>
           </button>
         </div>
