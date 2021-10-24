@@ -128,3 +128,26 @@
   border-radius: 15px;
   width: 92.5%;
 }
+
+/* Deck Buttons Styling */
+
+.footerItem {
+  transition: all 0.2s ease-in-out;
+}
+
+.footerItem:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.pencilIconDeck {
+  margin-left: 5px;
+}
+
+.trashIconDeck {
+  margin-left: 5px;
+}
+
+.hammerIconDeck {
+  margin-left: 5px;
+}

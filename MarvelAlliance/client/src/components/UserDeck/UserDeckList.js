@@ -31,7 +31,7 @@ const UserDeckList = () => {
             <div className="deckComponent">
                 {console.log('user decks', userDecks)}
                 {userDecks.map((userDeck) => (
-                    <UserDeck userDeck={userDeck} key={userDeck.id} />
+                    <UserDeck userDeck={userDeck} key={userDeck.id} setUserDecks={setUserDecks} />
                 ))}
             </div>
         </div>
