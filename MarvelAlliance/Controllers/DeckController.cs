@@ -84,6 +84,22 @@ namespace MarvelAlliance.Controllers
             }
         }
 
+        // https://localhost:5001/api/deck/id
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _deckRepository.DeleteDeck(id);
+
+                return NoContent();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         // Retrieve FirebaseUserId (string)
         private string GetCurrentUserFirebaseId()
         {
