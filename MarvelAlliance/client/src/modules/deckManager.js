@@ -78,3 +78,19 @@ export const updateDeck = (deck) => {
   });
 };
 
+export const getDeckById = (id) => {
+  return getToken().then((token) => {
+    return fetch(`${deckUrl}/${id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("An unknown error occurred while trying to get the deck.");
+      }
+    });
+  });
+};
