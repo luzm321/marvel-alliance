@@ -5,6 +5,7 @@ import Register from "./Auth/Register";
 import Home from "./Home/Home";
 import UserDeckList from "./UserDeck/UserDeckList";
 import PublicDeckList from "./PublicDeck/PublicDeckList";
+import DeckForm from "./UserDeck/DeckForm";
 
 export default function ApplicationViews({ isLoggedIn }) {
 
@@ -17,6 +18,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/myDecks" exact>
           {isLoggedIn ? <UserDeckList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/myDecks/deckForm" exact>
+          {isLoggedIn ? <DeckForm /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/publicDecks" exact>

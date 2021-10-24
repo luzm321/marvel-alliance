@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import { addDeck } from "../../modules/deckManager";
 import Swal from "sweetalert2";
+import "./UserDeck.css"
 
 const DeckForm = () => {
 
     const [deck, setDeck] = useState({});
     const history = useHistory();
+    // const [isLoading, setIsLoading] = useState(true);
     // const { deckId } = useParams();
 
     // useEffect(() => {
@@ -16,6 +18,10 @@ const DeckForm = () => {
     //             setDeck(deck)
     //         });
     //     }
+    // }, []);
+
+    // useEffect(() => {
+    //     setIsLoading(false)
     // }, []);
 
     // When a field changes, update state. The return will re-render and display based on the values in state:
@@ -66,6 +72,8 @@ const DeckForm = () => {
             confirmButtonColor: "#20B2AA"
           });
         // } else {
+        //     setIsLoading(true);
+        // } else {
         //   if (deckId) {
         //       //PUT - update
         //       saveEditDeck(event)
@@ -94,30 +102,31 @@ const DeckForm = () => {
     return (
         <div>
             {/* <h1 className="deckForm__title">{deckId ? "Edit Deck" : "New Deck" }</h1> */}
-            <div className="field">
-                <label className="label">Title:</label>
+            {/* <img className="newDeckLogo" src="./images/newDeckLogo.PNG" alt="New Deck" /> */}
+            <div className="field deckForm">
+                <h1 className="deckForm__title">~New Deck~</h1>
+                <label className="label deckFormLabel">Title:</label>
                 <div className="control">
-                    <input className="input" type="text" id="title" value={deck.title} onChange={(event) => {handleInputChange(event)}} required autoFocus placeholder="Deck Title..." />
+                    <input className="input deckFormInput" type="text" id="title" value={deck.title} onChange={(event) => {handleInputChange(event)}} required autoFocus placeholder="Give a marvelous title..." />
                     <span className="icon is-small is-right">
                     <i className="fas fa-check"></i>
                     </span>
                 </div>
-                <p className="help is-success">This title is marvelous!</p>
 
                 <div className="field">
-                    <label className="label">Details:</label>
+                    <label className="label deckFormLabel">Details:</label>
                     <div className="control">
-                        <textarea className="textarea" id="details" value={deck.details} onChange={(event) => {handleInputChange(event)}} required autoFocus placeholder="Deck Details..."></textarea>
+                        <textarea className="textarea deckFormInput" id="details" value={deck.details} onChange={(event) => {handleInputChange(event)}} required autoFocus placeholder="Give marvelous details..."></textarea>
                     </div>
                 </div>
 
                 <div className="field is-grouped">
                     <div className="control">
-                        <button className="button is-black is-rounded" onClick={() => {handleClickSaveDeck()}}>Submit</button>
-                        {/* { deckId ? "Save Deck" : "Add Deck" } */}
+                        <button className="button is-dark is-outlined is-rounded cancelDeckBut" onClick={() => {handleClickCancel()}}>Cancel</button>
                     </div>
                     <div className="control">
-                        <button className="button is-light is-rounded" onClick={() => {handleClickCancel()}}>Cancel</button>
+                        <button className="button is-dark is-outlined is-rounded add-deck-but" onClick={() => {handleClickSaveDeck()}}>Submit</button>
+                        {/* { deckId ? "Save Deck" : "Add Deck" } */}
                     </div>
                 </div>
                
