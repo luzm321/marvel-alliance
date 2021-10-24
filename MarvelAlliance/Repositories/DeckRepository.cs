@@ -67,6 +67,34 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Retrieve a Deck by Id:
+        public Deck GetDeckById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, UserProfileId, Title, Details
+                                        FROM Deck
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@id", id);
+
+                    Deck deck = null;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            deck = NewDeckFromReader(reader);
+                        }
+                    }
+                    return deck;
+                }
+            }
+        }
+
         // Add New Deck:
         public void AddDeck(Deck deck)
         {
@@ -85,6 +113,30 @@ namespace MarvelAlliance.Repositories
                     DbUtils.AddParameter(cmd, "@details", deck.Details);
 
                     deck.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+        // Update Existing Deck:
+        public void UpdateDeck(Deck deck)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"UPDATE Deck
+                                        SET UserProfileId = @userProfileId, 
+                                            Title = @title,
+                                            Details = @details
+                                            WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@userProfileId", deck.UserProfileId);
+                    DbUtils.AddParameter(cmd, "@title", deck.Title);
+                    DbUtils.AddParameter(cmd, "@details", deck.Details);
+                    DbUtils.AddParameter(cmd, "@id", deck.Id);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

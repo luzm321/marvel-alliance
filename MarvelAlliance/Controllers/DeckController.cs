@@ -42,6 +42,21 @@ namespace MarvelAlliance.Controllers
             return Ok(userDecks);
         }
 
+        //https://localhost:5001/api/deck/id
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                var deck = _deckRepository.GetDeckById(id);
+                return Ok(deck);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
         // https://localhost:5001/api/deck
         [HttpPost]
         public IActionResult Post(Deck deck)
@@ -51,6 +66,22 @@ namespace MarvelAlliance.Controllers
             deck.UserProfileId = currentUser.Id;
             _deckRepository.AddDeck(deck);
             return CreatedAtAction("Get", new { id = deck.Id }, deck);
+        }
+
+        // https://localhost:5001/api/deck
+        [HttpPut]
+        public IActionResult Update(Deck deck)
+        {
+            try
+            {
+                _deckRepository.UpdateDeck(deck);
+
+                return Ok(deck);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // Retrieve FirebaseUserId (string)
