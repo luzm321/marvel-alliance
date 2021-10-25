@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { deleteDeck, getCurrentUserDecks, getDeckById } from "../../modules/deckManager";
 import "./UserDeck.css";
-import { useHistory } from "react-router";
+import { useHistory, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UserDeck = ({ userDeck, setUserDecks }) => {
@@ -45,7 +45,9 @@ const UserDeck = ({ userDeck, setUserDecks }) => {
         <div className="card deckContainer">
             <header className="card-header">
                 <p className="card-header-title cardHeader">
-                {currentDeck.title}
+                  <Link to={`/myDecks/${currentDeck.id}/cards`}>
+                    {currentDeck.title}
+                  </Link>
                 </p>
             </header>
             <div className="card-content">
