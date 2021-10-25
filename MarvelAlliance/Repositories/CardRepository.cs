@@ -8,7 +8,7 @@ namespace MarvelAlliance.Repositories
 {
     public class CardRepository : BaseRepository, ICardRepository
     {
-        public DeckRepository(IConfiguration configuration) : base(configuration) { }
+        public CardRepository(IConfiguration configuration) : base(configuration) { }
 
         // Retrieve list of cards associated with a deck:
         public List<Card> GetCardsByDeckId(int deckId)
