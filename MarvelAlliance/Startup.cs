@@ -31,6 +31,7 @@ namespace MarvelAlliance
             // Register the Repository interfaces:
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             services.AddTransient<IDeckRepository, DeckRepository>();
+            services.AddTransient<ICardRepository, CardRepository>();
 
             // Configure Web API to understand and validate Firebase JWT (JSON Web Token) authentication after adding Microsoft.AspNetCore.Authentication.JwtBearer Nuget package to project:
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
