@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import UserDeck from "./UserDeck";
-import "./UserDeck.css"
+import "./UserDeck.css";
 import { getCurrentUserDecks } from "../../modules/deckManager";
 
 const UserDeckList = () => {

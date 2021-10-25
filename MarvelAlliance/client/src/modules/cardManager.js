@@ -2,7 +2,7 @@ import { getToken } from "./authManager";
 
 const cardUrl = '/api/card';
 
-export const getCardsDeckById = (deckId) => {
+export const getCardsByDeckId = (deckId) => {
     return getToken().then((token) => {
       return fetch(`${cardUrl}/${deckId}`, {
         method: "GET",
