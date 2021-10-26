@@ -1,0 +1,34 @@
+.returnDeckButton {
+  margin: 0.5em 0em 4em 2em;
+  font-family: "Kaushan Script", cursive;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.returnDeckButton:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.publicCardHeading {
+  color: black;
+  font-family: "Kaushan Script", cursive;
+  font-size: 35px;
+  margin: 0.5em 0em 1em 0em;
+}
+
+.noCardsHeader {
+  color: rgb(250, 248, 248);
+  font-size: 25px;
+  font-family: "Kaushan Script", cursive;
+  border: 2px white solid;
+  width: 15%;
+  background-color: black;
+  margin: 3em 0em 3em 23em;
+  border-radius: 10px;
+}
+
+.charName {
+  font-family: "Kaushan Script", cursive;
+}

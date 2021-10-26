@@ -1,5 +1,6 @@
 import React from "react";
 import "./PublicDeck.css";
+import { Link } from "react-router-dom";
 
 const PublicDeck = ({ publicDeck }) => {
   return (
@@ -7,7 +8,9 @@ const PublicDeck = ({ publicDeck }) => {
         <div className="card publicDeckContainer">
             <header className="card-header">
                 <p className="card-header-title publicCardHeader">
-                {publicDeck.title}
+                    <Link to={`/publicDecks/${publicDeck.id}/cards`}>
+                        {publicDeck.title}
+                    </Link>
                 </p>
             </header>
             <div className="card-content">
@@ -15,11 +18,6 @@ const PublicDeck = ({ publicDeck }) => {
                     {publicDeck.details}           
                 </div>
             </div>
-            {/* <footer className="card-footer">
-                <a href="#" className="card-footer-item">Worthy</a>
-                <a href="#" className="card-footer-item">Edit</a>
-                <a href="#" className="card-footer-item">Delete</a>
-            </footer> */}
         </div>           
     </div>
   );

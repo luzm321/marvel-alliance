@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import "./DeckCard.css";
+import "./UserDeckCard.css";
 
 
 const ExpandMore = styled((props) => {
@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function DeckCard({ card }) {
+export default function UserDeckCard({ card }) {
   const [expanded, setExpanded] = React.useState(false);
 //   const [card, setCard] = useState([]);
 

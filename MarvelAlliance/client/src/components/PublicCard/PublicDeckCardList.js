@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getCardsByDeckId } from "../../modules/cardManager";
-import DeckCard from "./DeckCard";
+import PublicDeckCard from "./PublicDeckCard";
 import { useParams, useHistory } from "react-router-dom";
-import "./DeckCard.css";
+import "./PublicDeckCard.css";
 
-const DeckCardList = () => {
+const PublicDeckCardList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
     // that is set by what passed to the hook and a function/method that updates that state/variable
   const [cards, setCards] = useState([]);
@@ -24,22 +24,22 @@ const DeckCardList = () => {
   return (
     <div>
         <div className="container">
-            <h1 className="cardHeading">My Cards:</h1><br/>
-            {/* <img className="myCardsLogo" src="./images/myCardsLogo.PNG" alt="My Cards" /> */}
+            <h1 className="publicCardHeading">Public Cards:</h1><br/>
+            {/* <img className="myCardsLogo" src="./images/cardsLogo.PNG" alt="Public Cards" /> */}
             <div className="container justify-content-center">
                 {console.log(cards)}
                 {cards.length !== 0 ?
                 cards.map((card) => {
-                    return <DeckCard card={card} key={card.id} />})
+                    return <PublicDeckCard card={card} key={card.id} />})
                     :
                     <h1 className="noCardsHeader">No Cards Yet</h1>
                 }
             </div>
             <br/>
-            <button className="button is-rounded is-light is-outlined returnDeckBut" onClick={() => {history.push(`/myDecks`)}}>Return to My Decks</button>
+            <button className="button is-rounded is-light is-outlined returnDeckButton" onClick={() => {history.push(`/publicDecks`)}}>Return to Public Decks</button>
         </div>
     </div>
   );
 };
 
-export default DeckCardList;
+export default PublicDeckCardList;
