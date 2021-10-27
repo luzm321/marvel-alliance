@@ -95,5 +95,29 @@ namespace MarvelAlliance.Controllers
                 throw new Exception(response.ReasonPhrase);
             }
         }
+
+        // Retrieving 20 random villains from SuperHeroSearch API:
+        // https://localhost:5001/api/superHeroSearch/getRandomVillains
+        [HttpGet("getRandomVillains")]
+        public async Task<List<RandomHeroAndVillainResponse>> GetRandomVillains()
+        {
+            List<RandomHeroAndVillainResponse> characterData = null;
+
+            string villainApiurl = $"https://superhero-search.p.rapidapi.com/api/villains";
+
+            using HttpResponseMessage response = await SuperHeroSearchAPIHelper.InitializeClient(true).GetAsync(villainApiurl);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonstring = await response.Content.ReadAsStringAsync();
+                characterData = JsonConvert.DeserializeObject<List<RandomHeroAndVillainResponse>>(jsonstring);
+                Console.WriteLine(characterData);
+                List<RandomHeroAndVillainResponse> marvelCharacters = characterData.FindAll(marvelCharacter => marvelCharacter.Biography.Publisher == "Marvel Comics" || marvelCharacter.Biography.Publisher == "Anti-Vision");
+                return marvelCharacters;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+        }
     }
 }
