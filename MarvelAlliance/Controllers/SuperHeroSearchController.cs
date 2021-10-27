@@ -72,10 +72,12 @@ namespace MarvelAlliance.Controllers
             }
         }
 
+        // Retrieving 20 random heroes from SuperHeroSearch API:
+        // https://localhost:5001/api/superHeroSearch/getRandomHeroes
         [HttpGet("getRandomHeroes")]
-        public async Task<SuperHeroSearchResponse> GetRandomHeroes()
+        public async Task<List<RandomHeroAndVillainResponse>> GetRandomHeroes()
         {
-            SuperHeroSearchResponse characterData = null;
+            List<RandomHeroAndVillainResponse> characterData = null;
 
             string heroApiurl = $"https://superhero-search.p.rapidapi.com/api/heroes";
             
@@ -83,9 +85,10 @@ namespace MarvelAlliance.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var jsonstring = await response.Content.ReadAsStringAsync();
-                characterData = JsonConvert.DeserializeObject<SuperHeroSearchResponse>(jsonstring);
+                characterData = JsonConvert.DeserializeObject<List<RandomHeroAndVillainResponse>>(jsonstring);
                 Console.WriteLine(characterData);
-                return characterData;
+                List<RandomHeroAndVillainResponse>marvelCharacters = characterData.FindAll(marvelCharacter => marvelCharacter.Biography.Publisher == "Marvel Comics" || marvelCharacter.Biography.Publisher == "Anti-Vision");
+                return marvelCharacters;
             }
             else
             {
