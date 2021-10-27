@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace MarvelAlliance.Models
 {
+    // represents the shape of the JSON response returned from the API call:
     public class PowerStats
     {
         //public int intelligence { get; set; }

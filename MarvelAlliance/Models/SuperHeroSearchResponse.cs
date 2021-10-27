@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace MarvelAlliance.Models
 {
+    // represents the shape of the JSON response returned from the API call:
     public class SuperHeroSearchResponse
     {
         public string Name { get; set; }
-        public List<PowerStats> Powerstats { get; set; }
-        public List<Images> Images { get; set; }
+        public PowerStats Powerstats { get; set; }
+        public Images Images { get; set; }
     }
 }
