@@ -10,25 +10,4 @@ namespace MarvelAlliance.Models
     {
         public MarvelComicsData Data { get; set; }
     }
-
-   
-
- 
-
-    
-
- 
-
-  
-
-   
-
-   
-
-  
-
-   
-
-   
-
 }

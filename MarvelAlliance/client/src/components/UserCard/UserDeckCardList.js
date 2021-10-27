@@ -3,6 +3,7 @@ import { getCardsByDeckId } from "../../modules/cardManager";
 import UserDeckCard from "./UserDeckCard";
 import { useParams, useHistory } from "react-router-dom";
 import "./UserDeckCard.css";
+import { getMarvelCharacterByName } from "../../modules/heroApiManager";
 
 const UserDeckCardList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -18,6 +19,7 @@ const UserDeckCardList = () => {
 
   useEffect(() => {
     getCards();
+    getMarvelCharacterByName("Scarlet Witch", "8f26faf3d251d1c35383404a75368f3a");
   }, []);
 
 
