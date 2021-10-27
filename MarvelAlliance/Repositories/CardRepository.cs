@@ -40,6 +40,33 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Add New Card:
+        public void AddCard(Card card)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Card (DeckId, CharacterName, Health, Power, Speed, Strength, Image, Description)
+                        OUTPUT INSERTED.ID
+                        VALUES (@deckId, @characterName, @health, @power, @speed, @strength, @image, @description)";
+
+                    DbUtils.AddParameter(cmd, "@deckId", card.DeckId);
+                    DbUtils.AddParameter(cmd, "@characterName", card.CharacterName);
+                    DbUtils.AddParameter(cmd, "@health", card.Health);
+                    DbUtils.AddParameter(cmd, "@power", card.Power);
+                    DbUtils.AddParameter(cmd, "@speed", card.Speed);
+                    DbUtils.AddParameter(cmd, "@strength", card.Strength);
+                    DbUtils.AddParameter(cmd, "@image", card.Image);
+                    DbUtils.AddParameter(cmd, "@description", card.Description);
+
+                    card.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         // Private, abstracted helper method to retrieve new Card from SqlDataReader
         private Card NewCardFromReader(SqlDataReader reader)
         {

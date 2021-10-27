@@ -17,10 +17,12 @@ namespace MarvelAlliance.Controllers
     public class CardController : ControllerBase
     {
         private readonly ICardRepository _cardRepository;
+        private readonly IUserProfileRepository _userProfileRepository;
 
-        public CardController(ICardRepository cardRepository)
+        public CardController(ICardRepository cardRepository, IUserProfileRepository userProfileRepository)
         {
             _cardRepository = cardRepository;
+            _userProfileRepository = userProfileRepository;
         }
 
         //https://localhost:5001/api/card/deckId
@@ -36,6 +38,22 @@ namespace MarvelAlliance.Controllers
             {
                 return NotFound();
             }
+        }
+
+        // https://localhost:5001/api/card
+        [HttpPost]
+        public IActionResult Post(Card card)
+        {
+            card.Health = 200;
+            _cardRepository.AddCard(card);
+            return CreatedAtAction("Get", new { id = card.Id }, card);
+        }
+
+        // Retrieve FirebaseUserId (string)
+        private string GetCurrentUserFirebaseId()
+        {
+            string firebaseUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return firebaseUserId;
         }
     }
 }
