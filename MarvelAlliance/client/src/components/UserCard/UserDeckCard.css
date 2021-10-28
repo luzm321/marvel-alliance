@@ -38,3 +38,76 @@
 .charName {
   font-family: "Kaushan Script", cursive;
 }
+
+/* Card Creation Form Styling */
+
+.cardForm {
+  margin: 10em 0em 5em 24em;
+  width: 50%;
+  height: 100%;
+  border-radius: 50px;
+}
+
+.cardForm__title {
+  color: black;
+  font-size: 35px;
+  margin: 0.5em 0 1.1em 0em;
+  font-family: "Kaushan Script", cursive;
+}
+
+.nameInput {
+  width: 40%;
+  margin: 0.5em 1.5em 2em 0em;
+  font-family: "Kaushan Script", cursive;
+}
+
+.getCharacter {
+  font-family: "Kaushan Script", cursive;
+  font-size: 21.1px;
+  margin: 0.5em 0em 0em 0em;
+  transition: all 0.2s ease-in-out;
+}
+
+.getCharacter:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.addCharacter {
+  font-family: "Kaushan Script", cursive;
+  font-size: 21.1px;
+  margin: 0.5em 0em 0em 0em;
+  transition: all 0.2s ease-in-out;
+}
+
+.addCharacter:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.returnCardBut {
+  margin: 2em 0em 1.5em 0em;
+  font-family: "Kaushan Script", cursive;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.returnCardBut:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.heroName {
+  color: black;
+  font-size: 30px;
+  margin: 2.5em 0em 1em 0em;
+}
+
+.heroDesc {
+  color: black;
+  font-size: 20px;
+  margin: 0em 0em 2.5em 0em;
+}

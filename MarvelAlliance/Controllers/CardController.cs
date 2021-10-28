@@ -46,7 +46,7 @@ namespace MarvelAlliance.Controllers
         {
             card.Health = 200;
             _cardRepository.AddCard(card);
-            return CreatedAtAction("Get", new { id = card.Id }, card);
+            return CreatedAtAction("Post", new { id = card.Id }, card);
         }
 
         // Retrieve FirebaseUserId (string)

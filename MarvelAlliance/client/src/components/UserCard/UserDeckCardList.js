@@ -3,7 +3,7 @@ import { getCardsByDeckId } from "../../modules/cardManager";
 import UserDeckCard from "./UserDeckCard";
 import { useParams, useHistory } from "react-router-dom";
 import "./UserDeckCard.css";
-import { getMarvelCharacterByName } from "../../modules/heroApiManager";
+
 
 const UserDeckCardList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -19,7 +19,11 @@ const UserDeckCardList = () => {
 
   useEffect(() => {
     getCards();
-    getMarvelCharacterByName("Scarlet Witch", "8f26faf3d251d1c35383404a75368f3a");
+    // if there are any changes in cards state, re-render component when a new card is added to the deck
+    // if (cards.length !== cards.length) {
+    //   console.log('cards state updated!');
+    //   getCards().then((cards) => setCards(cards));
+    // }
   }, []);
 
 
@@ -29,11 +33,15 @@ const UserDeckCardList = () => {
             <h1 className="cardHeading">My Cards:</h1><br/>
             {/* <img className="myCardsLogo" src="./images/myCardsLogo.PNG" alt="My Cards" /> */}
             <div className="addDeckDiv">
-              <button className="button is-light is-outlined is-rounded addDeckBut" 
-                onClick={() => {history.push(`/myDecks/${deckId}/cards/create`)}}>
-                    Assemble Card<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
-                    {/* <img className="createIcon" src="https://media.magic.wizards.com/C19-Icons_Deck.png"/> */}
-              </button>
+              {
+                cards.length < 3 ? 
+                    <button className="button is-light is-outlined is-rounded addDeckBut" 
+                      onClick={() => {history.push(`/myDecks/${deckId}/cards/create`)}}>
+                          Assemble Card<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
+                    </button>
+                  : 
+                    null
+              }
             </div>
             <div className="container justify-content-center">
                 {console.log(cards)}

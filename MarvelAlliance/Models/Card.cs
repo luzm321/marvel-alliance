@@ -33,7 +33,7 @@ namespace MarvelAlliance.Models
         [Required]
         public string Image { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
     }
 }
