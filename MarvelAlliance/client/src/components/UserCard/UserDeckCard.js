@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Button } from '@mui/material';
 import "./UserDeckCard.css";
 
 
@@ -79,6 +80,7 @@ export default function UserDeckCard({ card }) {
             <Typography paragraph>
               Speed: {card.speed} pts
             </Typography>
+            <Button style={{  margin: "1.5em 0em 1em 0em", fontFamily: "Kaushan Script, cursive" }} type="submit" variant="contained" color="error">Delete</Button>
           </CardContent>
         </Collapse>
       </Card>

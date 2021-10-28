@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace MarvelAlliance.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CardController : ControllerBase
