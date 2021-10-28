@@ -7,7 +7,7 @@
 .returnDeckBut {
   margin: 0.5em 0em 4em 2em;
   font-family: "Kaushan Script", cursive;
-  font-size: 20px;
+  font-size: 30px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -17,14 +17,7 @@
   cursor: pointer;
 }
 
-.cardHeading {
-  color: black;
-  font-family: "Kaushan Script", cursive;
-  font-size: 35px;
-  margin: 0.5em 0em 1em 0em;
-}
-
-.noCardsHeader {
+/* .noCardsHeader {
   color: rgb(250, 248, 248);
   font-size: 25px;
   font-family: "Kaushan Script", cursive;
@@ -33,7 +26,7 @@
   background-color: black;
   margin: 3em 0em 3em 23em;
   border-radius: 10px;
-}
+} */
 
 .charName {
   font-family: "Kaushan Script", cursive;
@@ -110,4 +103,48 @@
   color: black;
   font-size: 20px;
   margin: 0em 0em 2.5em 0em;
+}
+
+.deleteCardIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0.5em 0em 0em 1em;
+}
+
+.myCardsLogo {
+  mix-blend-mode: luminosity;
+  width: 400px;
+  height: 240px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 5em 0em;
+}
+
+.myCardsLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.noCardsLogo {
+  mix-blend-mode: luminosity;
+  width: 350px;
+  height: 250px;
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 5em 1.5em;
+}
+
+.noCardsLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.antMan {
+  width: 70px;
+  height: 70px;
+  margin-left: 10px;
+  border-radius: 50px;
 }

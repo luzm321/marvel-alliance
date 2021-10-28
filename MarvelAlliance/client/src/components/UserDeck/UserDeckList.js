@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import UserDeck from "./UserDeck";
 import "./UserDeck.css";
 import { getCurrentUserDecks } from "../../modules/deckManager";
+import myDecksLogo from "../../images/myDecksLogo.PNG";
 
 const UserDeckList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -20,7 +21,7 @@ const UserDeckList = () => {
 
   return (
     <div>
-        <img className="myDecksLogo" src="./images/myDecksLogo.PNG" alt="My Decks" />
+        <img className="myDecksLogo" src={myDecksLogo} alt="My Decks" />
         <div className="addDeckDiv">
           <button className="button is-light is-outlined is-rounded addDeckBut" 
             onClick={() => {history.push("/myDecks/create")}}>

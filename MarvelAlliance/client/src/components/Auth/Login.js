@@ -5,6 +5,7 @@ import { Button, FormGroup,  FormControl, FormLabel, TextField } from '@mui/mate
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import "./Login.css";
+import MarvelAlliance2 from "../../images/MarvelAlliance2.PNG";
 
 export default function Login() {
   const history = useHistory();
@@ -22,7 +23,7 @@ export default function Login() {
   return (
     <div className="loginBgd">
         <div>
-            <img className="avatar" src="./images/MarvelAlliance2.PNG" alt="Marvel Alliance" />
+            <img className="avatar" src={MarvelAlliance2} alt="Marvel Alliance" />
         </div>
 
         <form onSubmit={loginSubmit}>

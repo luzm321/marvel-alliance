@@ -82,10 +82,25 @@
   height: 240px;
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
-  margin: 2em 0em 5em 0em;
+  margin: 2em 0em 1em 2.5em;
 }
 
 .newDeckLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.editDeckLogo {
+  mix-blend-mode: luminosity;
+  width: 400px;
+  height: 240px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 1em 2.5em;
+}
+
+.editDeckLogo:hover {
   transform: scale(1.1);
   border: solid 2px black;
   cursor: pointer;

@@ -3,6 +3,8 @@ import { getCardsByDeckId } from "../../modules/cardManager";
 import UserDeckCard from "./UserDeckCard";
 import { useParams, useHistory } from "react-router-dom";
 import "./UserDeckCard.css";
+import myCardsLogo from "../../images/myCardsLogo.PNG";
+import noCardsLogo from "../../images/noCardsLogo.PNG";
 
 
 const UserDeckCardList = () => {
@@ -30,8 +32,7 @@ const UserDeckCardList = () => {
   return (
     <div>
         <div className="container">
-            <h1 className="cardHeading">My Cards:</h1><br/>
-            {/* <img className="myCardsLogo" src="./images/myCardsLogo.PNG" alt="My Cards" /> */}
+            <img className="myCardsLogo" src={myCardsLogo} alt="My Cards" />
             <div className="addDeckDiv">
               {
                 cards.length < 3 ? 
@@ -47,13 +48,17 @@ const UserDeckCardList = () => {
                 {console.log(cards)}
                 {cards.length !== 0 ?
                 cards.map((card) => {
-                    return <UserDeckCard card={card} key={card.id} />})
+                    return <UserDeckCard card={card} key={card.id} setCards={setCards} />})
                     :
-                    <h1 className="noCardsHeader">No Cards Yet</h1>
+                    // <h1 className="noCardsHeader">No Cards Yet</h1>
+                    <img className="noCardsLogo" src={noCardsLogo} alt="No Cards Yet" />
                 }
             </div>
             <br/>
-            <button className="button is-rounded is-light is-outlined returnDeckBut" onClick={() => {history.push(`/myDecks`)}}>Return to My Decks</button>
+            <button className="button is-rounded is-light is-outlined returnDeckBut" onClick={() => {history.push(`/myDecks`)}}>
+              {/* Return to My Decks<img className="antMan" src="https://i.ebayimg.com/images/g/y70AAOSwjP9eTEoo/s-l500.jpg" alt="Ant-Man" /> */}
+              Return to My Decks<img className="antMan" src="https://img.fruugo.com/product/2/76/108318762_max.jpg" alt="Ant-Man" />
+            </button>
         </div>
     </div>
   );

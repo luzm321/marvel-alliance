@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PublicDeck from "./PublicDeck";
 import "./PublicDeck.css"
 import { getAllDecks } from "../../modules/deckManager";
+import publicDecksLogo from "../../images/publicDecksLogo.PNG";
 
 const PublicDeckList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -21,7 +22,7 @@ const PublicDeckList = () => {
 
   return (
     <div>
-        <img className="publicDecksLogo" src="./images/decksLogo.PNG" alt="Public Decks" />
+        <img className="publicDecksLogo" src={publicDecksLogo} alt="Public Decks" />
         <div className="publicDecks">
             <div className="publicDeckComponent">
                 {console.log('public decks', publicDecks)}
