@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { register } from "../../modules/authManager";
 import { Button, FormGroup,  FormControl, FormLabel, TextField } from '@mui/material';
 import "./Register.css";
+import MarvelAlliance2 from "../../images/MarvelAlliance2.PNG";
 
 
 export default function Register() {
@@ -33,7 +34,7 @@ export default function Register() {
   return (
     <div className="regBgd">
         <div>
-            <img className="avatar" src="./images/MarvelAlliance2.PNG" alt="Marvel Alliance" />
+            <img className="avatar" src={MarvelAlliance2} alt="Marvel Alliance" />
         </div>
         <form onSubmit={registerClick}>
             <FormControl>

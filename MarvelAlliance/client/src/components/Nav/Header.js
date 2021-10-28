@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import "./Header.css";
+import MarvelAllianceLogo from "../../images/MarvelAllianceLogo.PNG";
 
 const Header = ({ isLoggedIn }) => {
     // using the <Link> component import from the react router instead of anchor tags for navigation
@@ -18,7 +19,7 @@ const Header = ({ isLoggedIn }) => {
                 <div className="navbar-start">
                     <div className="">
                       <Link to="/" className="">
-                        <img className="marvel-logo" src="./images/MarvelAllianceLogo.PNG" alt="Marvel Alliance" />
+                        <img className="marvel-logo" src={MarvelAllianceLogo} alt="Marvel Alliance" />
                       </Link>
                     </div>
 

@@ -3,6 +3,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { addDeck, updateDeck, getDeckById } from "../../modules/deckManager";
 import Swal from "sweetalert2";
 import "./UserDeck.css"
+import newDeckLogo from "../../images/newDeckLogo.PNG";
+import editDeckLogo from "../../images/editDeckLogo.PNG";
 
 
 const DeckForm = () => {
@@ -108,9 +110,15 @@ const DeckForm = () => {
 
     return (
         <div>
-            {/* <img className="newDeckLogo" src="./images/newDeckLogo.PNG" alt="New Deck" /> */}
+            <div>
+                {
+                    deckId ? <img className="editDeckLogo" src={editDeckLogo} alt="Edit Deck" /> 
+                        : 
+                            <img className="newDeckLogo" src={newDeckLogo} alt="New Deck" />
+                }  
+            </div>         
             <div className="field deckForm">
-                <h1 className="deckForm__title">{ deckId ? "~Edit Deck~" : "~New Deck~" }</h1>
+                <h1 className="deckForm__title">{ deckId ? "~Update Deck~" : "~Create Deck~" }</h1>
                 <label className="label deckFormLabel">Title:</label>
                 <div className="control">
                     <input className="input deckFormInput" type="text" id="title" value={deck.title} defaultValue={deck.title} onChange={(event) => {handleInputChange(event)}} required autoFocus placeholder="Give a marvelous title..." />

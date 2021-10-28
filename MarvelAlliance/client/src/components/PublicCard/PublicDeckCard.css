@@ -1,7 +1,7 @@
 .returnDeckButton {
   margin: 0.5em 0em 4em 2em;
   font-family: "Kaushan Script", cursive;
-  font-size: 20px;
+  font-size: 30px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -31,4 +31,11 @@
 
 .charName {
   font-family: "Kaushan Script", cursive;
+}
+
+.antMan {
+  width: 70px;
+  height: 70px;
+  margin-left: 10px;
+  border-radius: 50px;
 }
