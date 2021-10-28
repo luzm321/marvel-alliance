@@ -40,6 +40,35 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Retrieve a Card by Id:
+        public Card GetCardById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, DeckId, CharacterName, Health, Power,
+                                               Speed, Strength, Image, Description
+                                        FROM Card
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@id", id);
+
+                    Card card = null;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            card = NewCardFromReader(reader);
+                        }
+                    }
+                    return card;
+                }
+            }
+        }
+
         // Add New Card:
         public void AddCard(Card card)
         {
@@ -63,6 +92,24 @@ namespace MarvelAlliance.Repositories
                     DbUtils.AddParameter(cmd, "@description", card.Description);
 
                     card.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+        // Delete Existing Card:
+        public void DeleteCard(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"DELETE FROM Card
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@id", id);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

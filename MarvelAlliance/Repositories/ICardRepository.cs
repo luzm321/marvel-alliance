@@ -6,6 +6,8 @@ namespace MarvelAlliance.Repositories
     public interface ICardRepository
     {
         List<Card> GetCardsByDeckId(int deckId);
+        Card GetCardById(int id);
         void AddCard(Card card);
+        void DeleteCard(int id);
     }
 }
