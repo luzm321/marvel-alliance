@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace MarvelAlliance.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CardController : ControllerBase
@@ -40,8 +40,8 @@ namespace MarvelAlliance.Controllers
             }
         }
 
-        //https://localhost:5001/api/card/id
-        [HttpGet("{id}")]
+        //https://localhost:5001/api/card/getCard/id
+        [HttpGet("getCard/{id}")]
         public IActionResult GetById(int id)
         {
             try
@@ -62,6 +62,22 @@ namespace MarvelAlliance.Controllers
             card.Health = 200;
             _cardRepository.AddCard(card);
             return CreatedAtAction("Post", new { id = card.Id }, card);
+        }
+
+        // https://localhost:5001/api/card/id
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _cardRepository.DeleteCard(id);
+
+                return NoContent();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // Retrieve FirebaseUserId (string)
