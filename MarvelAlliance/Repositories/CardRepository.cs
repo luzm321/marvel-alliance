@@ -96,6 +96,24 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Delete Existing Card:
+        public void DeleteCard(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"DELETE FROM Card
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         // Private, abstracted helper method to retrieve new Card from SqlDataReader
         private Card NewCardFromReader(SqlDataReader reader)
         {
