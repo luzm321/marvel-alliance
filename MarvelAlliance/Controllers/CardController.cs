@@ -40,6 +40,21 @@ namespace MarvelAlliance.Controllers
             }
         }
 
+        //https://localhost:5001/api/card/id
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                var card = _cardRepository.GetCardById(id);
+                return Ok(card);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
         // https://localhost:5001/api/card
         [HttpPost]
         public IActionResult Post(Card card)
