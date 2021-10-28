@@ -25,7 +25,6 @@ const UserDeckList = () => {
           <button className="button is-light is-outlined is-rounded addDeckBut" 
             onClick={() => {history.push("/myDecks/create")}}>
                 Assemble Deck<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
-                {/* <img className="createIcon" src="https://media.magic.wizards.com/C19-Icons_Deck.png"/> */}
           </button>
         </div>
         <div className="decks">

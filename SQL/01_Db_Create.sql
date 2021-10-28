@@ -47,7 +47,7 @@ CREATE TABLE [Card] (
   [Speed] integer NOT NULL,
   [Strength] integer NOT NULL,
   [Image] nvarchar(255) NOT NULL,
-  [Description] nvarchar(255) NOT NULL,
+  [Description] nvarchar(MAX) NOT NULL,
 
   CONSTRAINT [FK_Card_Deck] FOREIGN KEY ([DeckId]) REFERENCES [Deck] ([Id]) ON DELETE CASCADE
 )
