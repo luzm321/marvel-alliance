@@ -40,6 +40,11 @@ const Header = ({ isLoggedIn }) => {
                         Public Decks
                       </Link>
                     </div>
+                    <div className="navbar-item battleArenaNav">
+                      <Link to="/battleArena" className="battleArenaNavLink">
+                        Battle Arena
+                      </Link>
+                    </div>
                 </div>
             </div>
           }
@@ -49,7 +54,7 @@ const Header = ({ isLoggedIn }) => {
               <div className="navbar-item">
               <Link to="/login">
                       <Button variant="contained" color="error" aria-current="page" className="logOut"
-                        style={{ margin: "0em 0em 0em 58em", fontFamily: "Kaushan Script, cursive" }} onClick={logout}>Logout</Button>
+                        style={{ margin: "0em 0em 0em 40em", fontFamily: "Kaushan Script, cursive" }} onClick={logout}>Logout</Button>
                         <IconButton style={{ fontFamily: "Kaushan Script, cursive" }} aria-label="exittoappicon" color="error">
                           <ExitToAppIcon />
                         </IconButton>

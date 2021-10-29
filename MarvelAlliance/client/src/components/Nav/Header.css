@@ -168,3 +168,41 @@
 .marvel-logo:hover {
   transform: scale(1.11);
 }
+
+/* Battle Arena Nav Styling */
+
+.battleArenaNavLink {
+  margin: 1em -3em 1em 5em;
+  font-size: 25px;
+  color: rgb(26, 24, 24);
+  transition: all 0.2s ease-in-out;
+}
+
+.battleArenaNavLink:hover {
+  transform: scale(1.2);
+  color: rgb(187, 48, 48);
+}
+
+.battleArenaNavLink::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: rgb(27, 26, 26);
+  display: block;
+  margin-left: 0em;
+  transition: 0.5s;
+  transform: skew(10deg, -7deg) scaleY(1.2);
+}
+
+.battleArenaNavLink:hover::after {
+  width: 100%;
+}
+
+.battleArenaNav {
+  margin: 0em 0em 0em -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+
+.battleArenaNav:hover {
+  transform: scale(1.2);
+}
