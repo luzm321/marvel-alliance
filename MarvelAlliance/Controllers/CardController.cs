@@ -80,6 +80,22 @@ namespace MarvelAlliance.Controllers
             }
         }
 
+        // https://localhost:5001/api/card
+        [HttpPatch]
+        public IActionResult Patch(Card card)
+        {
+            try
+            {
+                _cardRepository.PatchCard(card);
+
+                return Ok(card);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         // Retrieve FirebaseUserId (string)
         private string GetCurrentUserFirebaseId()
         {

@@ -114,6 +114,26 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Patch Description Property of Existing Card:
+        public void PatchCard(Card card)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"UPDATE Card
+                                        SET Description = @description
+                                        WHERE Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@description", card.Description);
+                    DbUtils.AddParameter(cmd, "@id", card.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         // Private, abstracted helper method to retrieve new Card from SqlDataReader
         private Card NewCardFromReader(SqlDataReader reader)
         {
