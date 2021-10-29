@@ -7,13 +7,10 @@ import "./UserDeckCard.css";
 
 const UserDeckCardForm = () => {
 
-    //const [cards, setCards] = useState([]);
     const [character, setCharacter] = useState("");
     const [characterInfo, setCharacterInfo] = useState([]);
 
     const history = useHistory();
-    //const [isLoading, setIsLoading] = useState(true); // submit button disabled until user has typed values for input fields on form
-    //const { cardId } = useParams();
     const { deckId } = useParams();
 
     const handleSetCharacter = (event) => {
@@ -25,18 +22,6 @@ const UserDeckCardForm = () => {
           setCharacterInfo(marvelCharacter);
         })
     };
-
-    // // When a field changes, update state. The return will re-render and display based on the values in state:
-    // const handleInputChange = (event) => {
-    //     /* When changing a state object or array,
-    //     create a copy, make changes, and then set state.*/
-    //     const newCard = { ...card }
-    //     /* Dynamically set the properties of the card obj to the new corresponding values
-    //     using object bracket notation. */
-    //     newCard[event.target.id] = event.target.value
-    //     // update state
-    //     setCard(newCard)
-    // };
 
     const saveNewCard = () => {
     //constructing character card object to save to db:

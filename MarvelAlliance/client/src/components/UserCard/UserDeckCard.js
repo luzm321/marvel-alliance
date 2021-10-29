@@ -13,7 +13,7 @@ import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button } from '@mui/material';
 import "./UserDeckCard.css";
-import { deleteCard, getCardById, getCardsByDeckId } from "../../modules/cardManager";
+import { deleteCard, getCardById, getCardsByDeckId, patchCard } from "../../modules/cardManager";
 import { useHistory, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -31,11 +31,20 @@ const ExpandMore = styled((props) => {
 
 export default function UserDeckCard({ card, setCards }) {
   const [expanded, setExpanded] = React.useState(false);
-//   const [card, setCard] = useState([]);
+  const [cardDescription, setCardDescription] = useState(card.description);
+  const [isEditing, setEditStatus] = useState(false);
 
   const [currentCard, setCurrentCard] = useState(card);
   const history = useHistory();
   const {deckId} = useParams();
+
+  const openEditMode = () => {
+    setEditStatus(true);
+  }
+
+  const closeEditMode = () => {
+    setEditStatus(false);
+  }
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -43,9 +52,50 @@ export default function UserDeckCard({ card, setCards }) {
 
   useEffect(() => {
     getCardById(currentCard.id)
-  }, []);
+    // listen for changes in card state passed as prop from parent component (UserDeckCardList) and if card state changes
+    // and is no longer the same state as currentCard state, then it changes currentCard to what card is now.
+    if (currentCard !== card) {
+      setCurrentCard(card);
+    }
+  }, [card]);
 
-  // Method for deleting a deck with sweetalert2 npm alert for form validation implemented:
+  const handleInputChange = (event) => {
+    let newCardDescription = cardDescription;
+    newCardDescription = event.target.value
+    setCardDescription(newCardDescription)
+  };
+
+  const patchCardDescription = () => {
+    const description = cardDescription;
+    if (description === "") {
+      Swal.fire({
+          title: "Cannot save an empty description! Please provide a value for description. 👇",
+          icon: "info",
+          confirmButtonColor: "#20B2AA"
+      });
+    } else {
+      closeEditMode()
+      const newCardDescription = {
+        id: parseInt(currentCard.id),
+        description: cardDescription 
+      }
+      patchCard(newCardDescription)
+        .then(() => {
+            Swal.fire({
+            title: "Card's Description Updated! 😊",
+            icon: "info",
+            confirmButtonColor: "#20B2AA"
+            })
+        }).then(() => {
+          getCardsByDeckId(deckId)
+          .then(userCards => setCards(userCards)) // update cards state in parent component to re-render list of cards
+        }).then(() => {
+          history.push(`/myDecks/${deckId}/cards`);
+        });
+      };
+  };
+
+  // Method for deleting a deck with sweetalert2 npm alert:
   const handleDeleteCard = () => {
     Swal.fire({
       title: "Are you certain you want to delete this card?",
@@ -71,6 +121,24 @@ export default function UserDeckCard({ card, setCards }) {
     });
   };
 
+  let cardContent;
+  if (isEditing) {
+    cardContent = <>
+      <div>
+        <textarea className="textArea" id="description" defaultValue={cardDescription} onChange={(event) => {handleInputChange(event)}}/>
+      </div>
+      <button className="button is-rounded is-black is-outlined cancelEditCard" onClick={() => {closeEditMode()}}>Cancel</button>
+      <button className="button is-rounded is-black is-outlined editCard" onClick={() => {patchCardDescription()}}>Save</button>
+    </>
+  } else {
+      cardContent = <>
+        <Typography className="contentDesc" id="description" type="text" value={cardDescription} defaultValue={cardDescription} variant="body2" color="text.secondary">
+          {currentCard.description}
+        </Typography>
+        <button className="button is-rounded is-black is-outlined editCardBut" onClick={() => {openEditMode()}}>Edit Description</button>
+      </>
+  }
+
   return (
     <div className="cardDiv">
       <Card sx={{ maxWidth: 370 }}>
@@ -89,9 +157,7 @@ export default function UserDeckCard({ card, setCards }) {
           alt="Character Image"
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {currentCard.description}
-          </Typography>
+          {cardContent}
         </CardContent>
         <CardActions disableSpacing>       
           <ExpandMore

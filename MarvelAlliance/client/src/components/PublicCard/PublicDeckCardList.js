@@ -39,7 +39,7 @@ const PublicDeckCardList = () => {
             </div>
             <br/>
             <button className="button is-rounded is-light is-outlined returnDeckButton" onClick={() => {history.push(`/publicDecks`)}}>
-              Return to Public Decks<img className="antMan" src="https://img.fruugo.com/product/2/76/108318762_max.jpg" alt="Ant-Man" />
+              Return to Public Decks<img className="antMan" src="https://media.fortniteapi.io/images/cosmetics/d17d07e48bf17aef5e5ae6e65ee830c3/v2/background.png" alt="Ant-Man" />
             </button>
         </div>
     </div>

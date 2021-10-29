@@ -148,3 +148,55 @@
   margin-left: 10px;
   border-radius: 50px;
 }
+
+.editCard {
+  margin: 2em 0em 0em 2em;
+  font-size: 19px;
+  font-family: "Kaushan Script", cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.editCard:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.editCardBut {
+  margin: 2em 0em 0em 0em;
+  font-size: 19px;
+  font-family: "Kaushan Script", cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.editCardBut:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.cancelEditCard {
+  margin: 2em 0em 0em 0em;
+  font-size: 19px;
+  font-family: "Kaushan Script", cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.cancelEditCard:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.textArea {
+  font-family: "Kaushan Script", cursive;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 2em 0em 0em 0em;
+  width: 100%;
+  height: 100%;
+}
+
+.contentDesc {
+  font-family: "Kaushan Script", cursive;
+}
