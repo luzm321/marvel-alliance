@@ -9,6 +9,7 @@ import UserDeckCardList from "./UserCard/UserDeckCardList";
 import PublicDeckCardList from "./PublicCard/PublicDeckCardList";
 import DeckForm from "./UserDeck/DeckForm";
 import UserDeckCardForm from "./UserCard/UserDeckCardForm";
+import BattleArena from "./BattleArena/BattleArena";
 
 export default function ApplicationViews({ isLoggedIn }) {
 
@@ -45,6 +46,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/publicDecks/:deckId(\d+)/cards" exact>
           {isLoggedIn ? <PublicDeckCardList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/battleArena" exact>
+          {isLoggedIn ? <BattleArena /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
