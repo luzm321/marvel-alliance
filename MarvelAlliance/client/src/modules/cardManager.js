@@ -68,3 +68,24 @@ export const deleteCard = (id) => {
     });
   });
 };
+
+export const patchCard = (card) => {
+  return getToken().then((token) => {
+  return fetch(cardUrl, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(card)
+    }).then(res => {
+      if (res.ok) {
+        return res.json();
+      } else if (res.status === 401) {
+        throw new Error("Unauthorized");
+      } else {
+        throw new Error("An unknown error occurred while trying to update the card's description.");
+      }
+    });
+  });
+};
