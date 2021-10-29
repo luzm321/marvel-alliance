@@ -135,7 +135,9 @@ export default function UserDeckCard({ card, setCards }) {
         <Typography className="contentDesc" id="description" type="text" value={cardDescription} defaultValue={cardDescription} variant="body2" color="text.secondary">
           {currentCard.description}
         </Typography>
-        <button className="button is-rounded is-black is-outlined editCardBut" onClick={() => {openEditMode()}}>Edit Description</button>
+        <button className="button is-rounded is-link is-outlined editCardBut" onClick={() => {openEditMode()}}>
+          Edit Description<img className="pencilIconDeck" src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png"/>
+        </button>
       </>
   }
 
