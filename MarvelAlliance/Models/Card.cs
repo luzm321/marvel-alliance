@@ -11,26 +11,26 @@ namespace MarvelAlliance.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         public int DeckId { get; set; }
 
-        [Required(ErrorMessage = "Hmmm... You should really add a Character Name...")]
+        //[Required(ErrorMessage = "Hmmm... You should really add a Character Name...")]
         [DisplayName("Character Name")]
         public string CharacterName { get; set; }
 
-        [Required]
+        //[Required]
         public int Health { get; set; }
 
-        [Required]
+        //[Required]
         public int Power { get; set; }
 
-        [Required]
+        //[Required]
         public int Speed { get; set; }
 
-        [Required]
+        //[Required]
         public int Strength { get; set; }
 
-        [Required]
+        //[Required]
         public string Image { get; set; }
 
         //[Required]
