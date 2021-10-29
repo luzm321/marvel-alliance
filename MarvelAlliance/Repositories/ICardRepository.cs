@@ -9,5 +9,6 @@ namespace MarvelAlliance.Repositories
         Card GetCardById(int id);
         void AddCard(Card card);
         void DeleteCard(int id);
+        void PatchCard(Card card);
     }
 }
