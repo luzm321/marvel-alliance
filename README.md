@@ -60,6 +60,14 @@ Add Seed Data Script - [Add Seed Data Script](https://github.com/luzm321/marvel-
 
 Link: https://dbdiagram.io/d/615a02ba825b5b01461ea916
 
+<table align="center"><tr><td>
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/MarvelAllianceERD.PNG" alt="ERD" />
+</td></tr></table>
+
 ## Capstone Wireframe:
 
 Link: https://miro.com/app/board/o9J_lrXNzcA=/
+
+<table align="center"><tr><td>
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/MarvelAllianceWireframe.PNG" alt="Wireframe" />
+</td></tr></table>
