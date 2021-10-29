@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+<table align="center"><tr><td>
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/MarvelAllianceLogo.PNG" width="300px" height="300px" alt="Marvel Alliance" />
+</td></tr></table>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Marvel Alliance 
+Full-Stack React + Web API Back-End Capstone Application
 
-In the project directory, you can run:
 
-### `npm start`
+## Setup: Follow these steps exactly:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Use terminal to clone this repository
+1. `cd` into the directory it creates (MarvelAlliance)
+```
+git clone git@github.com:luzm321/marvel-alliance.git
+cd MarvelAlliance/
+```
+1. Run `start MarvelAlliance.sln` to open the project solution in Visual Studio.
+1. In the terminal, `cd` into the SQL directory and copy the Create Table SQL script (01_Db_Create.sql)
+1. Then, go to the project in Visual Studio and run the Create Table SQL script as a new query.
+1. Next, go to the database the Create Table script generates (MarvelAlliance) in the SQL Server Object Explorer and add it to a new query
+1. Afterwards, copy the Seed Data SQL script (02_Seed_Data.sql) and run the sript in the MarvelAlliance database
+1. Run the program in Visual Studio (on port localhost:5001). This concludes the back-end portion setup.
+1. For the front-end setup, `cd` into the MarvelAlliance/ directory and then `cd` into the client/ directory.
+1. In the client directory, run `npm install` and wait for all dependencies to be installed.
+1. Run `npm start` to verify that installation was successful. (This will run the client/React app on port localhost:3000)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Inspiration for creating Marvel Alliance:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I love the Marvel franchise and enjoy watching the movies and learning about the characters in the Marvel universe. I wanted to build a simple, yet fun and interactive card game app that I can play and share with friends that involves Marvel characters which is inspired by the Pokemon Trading Card Game.
 
-### `npm run build`
+## What is Marvel Alliance?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Marvel Alliance is a turn-based strategy card game that utilizes Marvel characters with generated power stats to simulate an engaging, fun, and interactive card game experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This application is built for my Back-End Capstone project for Nashville Software School.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Users can perform CRUD operations on a deckand card along with playing a game against simple AI (NPC) that attacks the opponent when it's their turn. Each defending character card's health points are decremented based on the attacking character's calculated power points. The player that has no cards left in their hand loses the game. 
 
-### `npm run eject`
+## Tech Stack:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> Built with:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ASP.NET Core Web API for server-side portion
+- SQL Server for database management
+- ReactJS for client portion
+- Firebase Auth leveraged for authentication and authorization of users
+- Marvel Comics API and SuperHero Search API: Third-party APIs implemented in app to retrieve Marvel character data and powerstats
+- Styled with Bulma/Material UI frameworks and CSS3
+- SweetAlert2 npm for alerts
+- react-animations/radium npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## SQL Scripts:
+Create Table Script - [Create Table Script](https://github.com/luzm321/marvel-alliance/blob/main/SQL/01_Db_Create.sql)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Add Seed Data Script - [Add Seed Data Script](https://github.com/luzm321/marvel-alliance/blob/main/SQL/02_Seed_Data.sql)
 
-## Learn More
+## Capstone ERD (Entity Relationship Diagram):
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Link: https://dbdiagram.io/d/615a02ba825b5b01461ea916
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<table align="center"><tr><td>
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/MarvelAllianceERD.PNG" alt="ERD" />
+</td></tr></table>
 
-### Code Splitting
+## Capstone Wireframe:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Link: https://miro.com/app/board/o9J_lrXNzcA=/
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table align="center"><tr><td>
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/MarvelAllianceWireframe.PNG" alt="Wireframe" />
+</td></tr></table>
