@@ -51,7 +51,7 @@ export default function PublicDeckCard({ card }) {
           alt="Character Image"
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
+          <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} variant="body2" color="text.secondary">
             {card.description}
           </Typography>
         </CardContent>
@@ -66,17 +66,17 @@ export default function PublicDeckCard({ card }) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Character Stats:</Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "25px" }} paragraph>~Character Stats~</Typography>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Health: {card.health} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Power: {card.power} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Strength: {card.strength} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Speed: {card.speed} pts
             </Typography>
           </CardContent>
