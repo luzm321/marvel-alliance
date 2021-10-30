@@ -132,17 +132,19 @@ export default function UserDeckCard({ card, setCards }) {
     </>
   } else {
       cardContent = <>
-        <Typography className="contentDesc" id="description" type="text" value={cardDescription} defaultValue={cardDescription} variant="body2" color="text.secondary">
+        <Typography className="contentDesc" style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} id="description" type="text" value={cardDescription} defaultValue={cardDescription} variant="body2" color="text.secondary">
           {currentCard.description}
         </Typography>
-        <button className="button is-rounded is-black is-outlined editCardBut" onClick={() => {openEditMode()}}>Edit Description</button>
+        <button className="button is-rounded is-link is-outlined editCardBut" onClick={() => {openEditMode()}}>
+          Edit Description<img className="pencilIconDeck" src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png"/>
+        </button>
       </>
   }
 
   return (
     <div className="cardDiv">
-      <Card sx={{ maxWidth: 370 }}>
-        <CardHeader className="charName" style={{ fontFamily: "Kaushan Script, cursive" }}
+      <Card sx={{ maxWidth: 370 }} style={{ fontFamily: "Kaushan Script, cursive", fontSize: "19px" }}>
+        <CardHeader style={{ fontFamily: "Kaushan Script, cursive", fontSize: "21px" }} className="charName"
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="Character Card">
               <img className="marvelIcon" src="https://i.pinimg.com/originals/99/9f/74/999f7467e89a8e4877fea1bdd10eb9d3.jpg" alt="Marvel" />
@@ -170,17 +172,17 @@ export default function UserDeckCard({ card, setCards }) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Character Stats:</Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "25px" }} paragraph>~Character Stats~</Typography>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Health: {currentCard.health} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Power: {currentCard.power} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Strength: {currentCard.strength} pts
             </Typography>
-            <Typography paragraph>
+            <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
               Speed: {currentCard.speed} pts
             </Typography>
             <Button onClick={() => {handleDeleteCard()}} style={{  margin: "1.5em 0em 1em 0em", fontFamily: "Kaushan Script, cursive" }} type="submit" variant="contained" color="error">
