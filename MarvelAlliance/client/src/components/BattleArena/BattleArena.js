@@ -23,6 +23,7 @@ const BattleArena = () => {
     }, []);
 
     const handleDeckSelection = (event) => {
+        //deck object target of even when selected from dropdown:
         const deck = event;
         const newGame = {...deckSelection}
         getCardsByDeckId(deck.id).then(deckCards => {

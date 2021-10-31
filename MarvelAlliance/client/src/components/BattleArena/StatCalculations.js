@@ -1,3 +1,6 @@
+
+// Method calculates a character's health based on the value of the powerstats properties retrieved from SuperHeroSearch API:
+
 export const calculateHealth = (character) => {
     let power = character.powerstats.power
     let strength = character.powerstats.strength
