@@ -5,9 +5,35 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useHistory } from "react-router-dom";
+import { createNPCHand } from "../../modules/heroApiManager";
+import { getCardsByDeckId } from "../../modules/cardManager";
 
 
 export default function DeckDetail({deckSelection, setShowGameViewModal}) {
+
+    const history = useHistory();
+
+    const createBattleSession = (deckId) => {
+        return createNPCHand().then((npcHand) => {
+            return getCardsByDeckId(deckId).then((userHand) => {
+                let battleSession = {
+                    deckId: deckId,
+                    userHand: userHand,
+                    npcHand: npcHand
+                };
+                return localStorage.setItem("battleSession", JSON.stringify(battleSession));
+            });
+        });
+    }
+
+    const startGame = (deckId) => {
+        createBattleSession(deckId).then(() => {
+            history.push(`/battleGround`)
+        });
+    }
+
+
     return (
     <div className="deckDetailDiv">
         <Card sx={{ maxWidth: 500 }}>
@@ -31,7 +57,7 @@ export default function DeckDetail({deckSelection, setShowGameViewModal}) {
             </CardContent>
             <CardActions>
             <Button color="success" variant="contained" style={{ margin: "0.5em 0em 1.5em 13em", fontFamily: "Kaushan Script, cursive", padding: "1em", fontSize: "14px" }}
-                onClick={() => {console.log("clicked!")}} size="small">Start Game</Button>
+                onClick={() => {startGame(deckSelection.chosenDeck.id)}} size="small">Start Game</Button>
             </CardActions>
         </Card>
       </div>

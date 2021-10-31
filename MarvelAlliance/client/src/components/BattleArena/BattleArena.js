@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import { getCurrentUserDecks } from "../../modules/deckManager";
 import { getCardsByDeckId } from "../../modules/cardManager";
 import DeckDetail from "./DeckDetail";
