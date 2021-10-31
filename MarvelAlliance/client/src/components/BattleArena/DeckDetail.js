@@ -14,6 +14,8 @@ export default function DeckDetail({deckSelection, setShowGameViewModal}) {
 
     const history = useHistory();
 
+    // method creates battleSession object, passes id of deck user selected from dropdown menu when user clicks "Start Game"
+    // and stores it to to localStorage
     const createBattleSession = (deckId) => {
         return createNPCHand().then((npcHand) => {
             return getCardsByDeckId(deckId).then((userHand) => {
@@ -27,6 +29,8 @@ export default function DeckDetail({deckSelection, setShowGameViewModal}) {
         });
     }
 
+    // method retrieves deckId from selected deck from dropdown menu and passes it to the createBattleSession method and redirects user
+    // to the battleGround page/view:
     const startGame = (deckId) => {
         createBattleSession(deckId).then(() => {
             history.push(`/battleGround`)
