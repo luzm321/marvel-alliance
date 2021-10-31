@@ -160,9 +160,9 @@ const BattleGround = () => {
         playerView = <p>You lost against the AI, better luck next time!</p>
     } else {
         playerView = <div>
-        <p>{userHand[0].characterName}</p>
-        <p>{userHand[0].health}</p>
-        <p>{userHand[0].power}</p>
+        <p>Name: {userHand[0].characterName}</p>
+        <p>Health: {userHand[0].health}</p>
+        <p>Power: {userHand[0].power}</p>
         <img className="characterImage" src={userHand[0].image}></img>
     </div>
     }
@@ -176,7 +176,7 @@ const BattleGround = () => {
         npcView = <div>
         <p>Name: {npcHand[0].name}</p>
         <p>Health: {npcHand[0].health}</p>
-        <p>Power: {npcHand[0].power}</p>
+        <p>Power: {npcHand[0].powerstats.power}</p>
         <img src={npcHand[0].images.md}></img>
     </div>
     }
