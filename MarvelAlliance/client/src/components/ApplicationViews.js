@@ -10,6 +10,7 @@ import PublicDeckCardList from "./PublicCard/PublicDeckCardList";
 import DeckForm from "./UserDeck/DeckForm";
 import UserDeckCardForm from "./UserCard/UserDeckCardForm";
 import BattleArena from "./BattleArena/BattleArena";
+import BattleGround from "./BattleArena/BattleGround";
 
 export default function ApplicationViews({ isLoggedIn }) {
 
@@ -50,6 +51,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/battleArena" exact>
           {isLoggedIn ? <BattleArena /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/battleGround" exact>
+          {isLoggedIn ? <BattleGround /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
