@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getUsers } from "../../modules/authManager";
 import "./Home.css";
 import ImageGallery from "./ImageGallery";
+import MarvelAlliance from "../../images/MarvelAlliance.PNG";
 
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
                     })
                 }
             </div>
+            <img className="marvelAlliance" src={MarvelAlliance} alt="Marvel Alliance" />
             <div className="gallery">
                 <ImageGallery />
             </div>
