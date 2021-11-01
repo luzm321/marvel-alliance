@@ -45,7 +45,7 @@ This application is built for my Back-End Capstone project for Nashville Softwar
 - ASP.NET Core Web API for server-side portion
 - SQL Server for database management
 - ReactJS for client portion
-- Firebase Auth leveraged for authentication and authorization of users
+- Google Firebase leveraged for authentication and authorization of users
 - Marvel Comics API and SuperHero Search API: Third-party APIs implemented in app to retrieve Marvel character data and powerstats
 - Styled with Bulma/Material UI frameworks and CSS3
 - SweetAlert2 npm for alerts
