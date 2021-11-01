@@ -28,7 +28,7 @@ const UserDeck = ({ userDeck, setUserDecks }) => {
         deleteDeck(currentDeck.id).then(() => {
           Swal.fire(
             'Deleted!',
-            'Deck has been removed from collection!',
+            'Thanos snapped his fingers and removed deck from collection!',
             'success'
           )
         }).then(() => {

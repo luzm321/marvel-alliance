@@ -3,7 +3,9 @@ import { useHistory } from "react-router-dom";
 import { getCardsByDeckId } from "../../modules/cardManager";
 import { createNPCHand } from "../../modules/heroApiManager";
 import { decideWhoStarts, randomIntFromInterval, isOdd } from "../BattleArena/TurnDecider";
-import "./BattleGround.css";
+import "./BattleArena.css";
+import battleGroundLogo from "../../images/battleGroundLogo.PNG";
+import Swal from "sweetalert2";
 
 const BattleGround = () => {
 
@@ -146,10 +148,15 @@ const BattleGround = () => {
     // displays heads or tails segment for user to select to decide who attacks first:
     let decideHeadsOrTailsSegment;
     if (showHeadsOrTailsSegment) {
-       decideHeadsOrTailsSegment = <>
-       <button id="heads" onClick={(event) => {decideWhoStartsFirst(event)}}>Heads</button>
-       <button id="tails" onClick={(event) => {decideWhoStartsFirst(event)}}>Tails</button>
-   </>
+        decideHeadsOrTailsSegment = <div className="box headsOrTailsDiv">
+            <h1 className="headsOrTails">~Select Heads or Tails~</h1>
+            <button className="button is-rounded is-light is-primary headsBut" id="heads" onClick={(event) => {decideWhoStartsFirst(event)}}>
+                Heads<img className="headsIcon" src="https://img.icons8.com/external-inipagistudio-mixed-inipagistudio/64/000000/external-coin-pro-gamer-inipagistudio-mixed-inipagistudio.png"/>
+            </button>
+            <button className="button is-rounded is-outlined is-success is-light tailsBut" id="tails" onClick={(event) => {decideWhoStartsFirst(event)}}>
+                Tails<img className="tailsIcon" src="https://img.icons8.com/office/80/000000/iron-man.png"/>
+            </button>
+        </div>
     } else {
         decideHeadsOrTailsSegment = null;
     }
@@ -157,13 +164,14 @@ const BattleGround = () => {
     // displays user's view witch current character's stats and determines if user loses based on length of hand in array
     let playerView;
     if (userHand.length === 0) {
-        playerView = <p>You lost against the AI, better luck next time!</p>
+        playerView = <p className="lostGame">You lost against the NPC, better luck next time!</p>
     } else {
-        playerView = <div>
-        <p>{userHand[0].characterName}</p>
-        <p>{userHand[0].health}</p>
-        <p>{userHand[0].power}</p>
-        <img className="characterImage" src={userHand[0].image}></img>
+        playerView = <div className="playerDiv">
+        <h1 className="player">~User Character Card~</h1>
+        <p className="playerName">Name: {userHand[0].characterName}</p>
+        <p className="playerHealth">Health: {userHand[0].health}</p>
+        <p className="playerPower">Power: {userHand[0].power}</p>
+        <img className="playerImg" src={userHand[0].image}></img>
     </div>
     }
 
@@ -171,20 +179,23 @@ const BattleGround = () => {
     // displays current view of npc hand with character's stats and determines if npc loses based on length of hand in array
     let npcView;
     if (npcHand.length === 0) {
-            npcView = <p>Yay, you won against the AI! :D</p>
+            npcView = <p className="wonGame">Yay, you won against the NPC! :D</p>
     } else {
-        npcView = <div>
-        <p>Name: {npcHand[0].name}</p>
-        <p>Health: {npcHand[0].health}</p>
-        <p>Power: {npcHand[0].power}</p>
-        <img src={npcHand[0].images.md}></img>
+        npcView = <div className="npcDiv">
+        <h1 className="npc">~NPC Character Card~</h1>
+        <p className="npcName">Name: {npcHand[0].name}</p>
+        <p className="npcHealth">Health: {npcHand[0].health}</p>
+        <p className="npcPower">Power: {npcHand[0].powerstats.power}</p>
+        <img className="npcImg" src={npcHand[0].images.md}></img>
     </div>
     }
 
     let attackButton;
     if (currentTurn) {
         // if it is user's current turn, display attack button
-        attackButton = <button onClick={attackAction}>Attack</button>
+        attackButton = <button className="button is-rounded is-danger is-light attackBut" onClick={attackAction}>
+            Attack<img className="attackIcon" src="https://img.icons8.com/color/100/000000/angry-fist.png"/>
+        </button>
     } else {
         attackButton = null;
     }
@@ -194,7 +205,12 @@ const BattleGround = () => {
         if (headsOrTailsPlayerChoice === null) {
             return null;
         } else {
-            alert(`You chose ${headsOrTailsPlayerChoice} but the coin landed on ${initialTurn}`);
+            Swal.fire({
+                // title: `You chose ${headsOrTailsPlayerChoice} but the coin landed on ${initialTurn}. NPC attacked first!`,
+                title: `You lost the coin toss, the NPC attacked first!`,
+                icon: "info",
+                confirmButtonColor: "#20B2AA"
+            });
             setPlayersChoice(!headsOrTailsPlayerChoice);
             setCurrentTurn(false);
         }
@@ -204,22 +220,27 @@ const BattleGround = () => {
     // displays both npc and player/user views with attack button for user:
     if (headsOrTailsPlayerChoice === initialTurn) {
         // if user's choice from heads or tails matches boolean value of turn decider boolean value, then user attacks first:
-        gameView = <>{npcView} {playerView}  {attackButton} <button onClick={closeGame}>Exit Game</button></>
+        gameView = <>{npcView} {playerView}  {attackButton} <button className="button is-rounded is-light is-danger exitBut" onClick={closeGame}>
+                Exit Game<img className="exitIcon" src="https://img.icons8.com/color/100/000000/fire-exit.png"/>
+            </button>
+        </>
     } else {
         // else, npc goes first:
         gameView = npcAttackFirst();
     }
 
    return (
-       <div>
-           {/* <button onClick={() => {checkState()}}>check state</button> */}
-           <h1 style={{color: "white"}}>Battle Ground</h1>
-       { headsOrTailsPlayerChoice === null ? 
+        <div className="">
+            {/* <button onClick={() => {checkState()}}>check state</button> */}
+            <div>
+               <img className="battleGroundLogo" src={battleGroundLogo} alt="Battle Ground" />
+            </div>
+        { headsOrTailsPlayerChoice === null ? 
                decideHeadsOrTailsSegment
            :
            gameView
-       }
-       </div>
+        }
+        </div>
    );
 };
 
