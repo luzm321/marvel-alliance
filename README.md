@@ -36,7 +36,7 @@ Marvel Alliance is a turn-based strategy card game that utilizes Marvel characte
 
 This application is built for my Back-End Capstone project for Nashville Software School.
 
-> Users can perform CRUD operations on a deckand card along with playing a game against simple AI (NPC) that attacks the opponent when it's their turn. Each defending character card's health points are decremented based on the attacking character's calculated power points. The player that has no cards left in their hand loses the game. 
+> Users can perform CRUD operations on a deck and card along with playing a game against a simple AI (NPC) that attacks the opponent when it's their turn. Each defending character card's health points are decremented based on the attacking character's calculated power points. The player that has no cards left in their hand loses the game. 
 
 ## Tech Stack:
 
