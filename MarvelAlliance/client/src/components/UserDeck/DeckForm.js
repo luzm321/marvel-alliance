@@ -12,7 +12,7 @@ const DeckForm = () => {
     const [deck, setDeck] = useState({});
 
     const history = useHistory();
-    const [isLoading, setIsLoading] = useState(true); // submit button disabled until user has typed values for input fields on form
+    //const [isLoading, setIsLoading] = useState(true); // submit button disabled until user has typed values for input fields on form
     const { deckId } = useParams();
 
     useEffect(() => {
@@ -20,10 +20,10 @@ const DeckForm = () => {
             getDeckById(deckId)
             .then(deck => {
                 setDeck(deck) // pre-populate deck state/obj with current values when editing a deck if there is a deckId param in route
-                setIsLoading(false)
+                //setIsLoading(false)
             })
         } else {
-            setIsLoading(false)
+            //setIsLoading(false)
         }
     }, []);
 
@@ -73,7 +73,7 @@ const DeckForm = () => {
             confirmButtonColor: "#20B2AA"
             });
         } else {
-            setIsLoading(true);
+            //setIsLoading(true);
         
           if (deckId) {
               //PUT - update
@@ -139,7 +139,7 @@ const DeckForm = () => {
                         <button className="button is-dark is-outlined is-rounded cancelDeckBut" onClick={() => {handleClickCancel()}}>Cancel</button>
                     </div>
                     <div className="control">
-                        <button className="button is-dark is-outlined is-rounded add-deck-but" disabled={isLoading} onClick={() => {handleClickSaveDeck()}}>{ deckId ? "Save Deck" : "Add Deck" }</button>
+                        <button className="button is-dark is-outlined is-rounded add-deck-but" onClick={() => {handleClickSaveDeck()}}>{ deckId ? "Save Deck" : "Add Deck" }</button>
                     </div>
                 </div>
                
