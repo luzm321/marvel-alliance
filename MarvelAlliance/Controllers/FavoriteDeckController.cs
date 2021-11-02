@@ -25,6 +25,60 @@ namespace MarvelAlliance.Controllers
             _userProfileRepository = userProfileRepository;
         }
 
+        //https://localhost:5001/api/favoriteDeck
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_faveDeckRepository.GetAll());
+        }
 
+        //https://localhost:5001/api/favoriteDeck/id
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                var faveDeck = _faveDeckRepository.GetFaveDeckById(id);
+                return Ok(faveDeck);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // https://localhost:5001/api/favoriteDeck
+        [HttpPost]
+        public IActionResult Post(FavoriteDeck faveDeck)
+        {
+            string fireBaseId = GetCurrentUserFirebaseId();
+            var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
+            faveDeck.UserProfileId = currentUser.Id;
+            _faveDeckRepository.AddFaveDeck(faveDeck);
+            return CreatedAtAction("Get", new { id = faveDeck.Id }, faveDeck);
+        }
+
+        // https://localhost:5001/api/favrotieDeck/id
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _faveDeckRepository.DeleteFaveDeck(id);
+
+                return NoContent();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        // Retrieve FirebaseUserId (string)
+        private string GetCurrentUserFirebaseId()
+        {
+            string firebaseUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return firebaseUserId;
+        }
     }
 }
