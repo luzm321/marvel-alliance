@@ -44,7 +44,7 @@ export const getFaveDeckById = (id) => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(deck)
+      body: JSON.stringify(faveDeck)
       }).then(res => {
         if (res.ok) {
           return res.json();
