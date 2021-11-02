@@ -58,7 +58,7 @@ namespace MarvelAlliance.Controllers
             return CreatedAtAction("Get", new { id = faveDeck.Id }, faveDeck);
         }
 
-        // https://localhost:5001/api/favrotieDeck/id
+        // https://localhost:5001/api/favoriteDeck/id
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
