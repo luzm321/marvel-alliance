@@ -13,7 +13,9 @@ namespace MarvelAlliance.Models
         [Required]
         public int DeckId { get; set; }
 
+        public Deck Deck { get; set; }
+
         [Required]
-        public int UserProfileId { get; set; }      
+        public int UserProfileId { get; set; }  
     }
 }
