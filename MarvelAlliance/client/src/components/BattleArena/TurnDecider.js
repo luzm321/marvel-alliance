@@ -1,8 +1,3 @@
-
-// const generateEvenNumber = () => {
-//     return Math.floor(Math.random() * (100 - 0 + 1)) + 0;
-// }
-
 // generates random int
 export const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);

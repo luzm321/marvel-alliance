@@ -45,7 +45,6 @@ const FaveDeck = ({ faveDeck, setFaveDecks }) => {
         <div className="card deckContainer">
             <header className="card-header">
                 <p className="card-header-title cardHeader">
-                    {/* {favoriteDeck?.deck?.title}  */}
                     <Link to={`/faveDecks/${favoriteDeck.id}/cards`}>
                         {favoriteDeck?.deck?.title}
                     </Link>
@@ -58,7 +57,6 @@ const FaveDeck = ({ faveDeck, setFaveDecks }) => {
             </div>
             <footer className="card-footer">
                 <a href="#" className="card-footer-item footerItem">
-                    {/* Worthy<img className="hammerIconDeck" src="https://img.icons8.com/glyph-neue/48/000000/thor-hammer.png"/> */}
                     Unworthy<img className="hammerIconDeck" src="https://img.icons8.com/fluency/48/000000/thor-hammer.png"/>
                 </a>
             </footer>

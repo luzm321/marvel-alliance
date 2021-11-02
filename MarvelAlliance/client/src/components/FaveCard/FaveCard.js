@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -34,7 +34,6 @@ export default function FaveCard({ faveCard }) {
 
   return (
     <div className="cardDiv">
-        {/* {console.log('favorite cards', faveCard)} */}
       <Card sx={{ maxWidth: 370 }} style={{ fontFamily: "Kaushan Script, cursive", fontSize: "19px" }}>
         <CardHeader style={{ fontFamily: "Kaushan Script, cursive", fontSize: "21px" }} className="charName"
           avatar={

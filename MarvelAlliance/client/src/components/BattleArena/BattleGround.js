@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
-import { getCardsByDeckId } from "../../modules/cardManager";
-import { createNPCHand } from "../../modules/heroApiManager";
 import { decideWhoStarts, randomIntFromInterval, isOdd } from "../BattleArena/TurnDecider";
 import "./BattleArena.css";
 import battleGroundLogo from "../../images/battleGroundLogo.PNG";
@@ -36,12 +34,6 @@ const BattleGround = () => {
         // dependency array will listen for changes in currentTurn state to enable turn-based mechanic
     }, [currentTurn]);
 
-//    let checkState = () => {
-//         console.log('state', npcHand);
-//         console.log('state', userHand);
-//         console.log('current turn', currentTurn);  
-//         console.log('initial turn', initialTurn, "players choice", headsOrTailsPlayerChoice)     
-//     }   
 
    // method handles the alternating turns between user and npc based on currentTurn's value and whether user loses if there are no more
    // character cards in the userHand array:
@@ -231,7 +223,6 @@ const BattleGround = () => {
 
    return (
         <div className="">
-            {/* <button onClick={() => {checkState()}}>check state</button> */}
             <div>
                <img className="battleGroundLogo" src={battleGroundLogo} alt="Battle Ground" />
             </div>

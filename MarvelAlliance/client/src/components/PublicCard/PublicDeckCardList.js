@@ -7,8 +7,6 @@ import publicCardsLogo from "../../images/publicCardsLogo.PNG";
 import noCardsLogo from "../../images/noCardsLogo.PNG";
 
 const PublicDeckCardList = () => {
-    // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
-    // that is set by what passed to the hook and a function/method that updates that state/variable
   const [cards, setCards] = useState([]);
 
   const {deckId} = useParams();
@@ -33,7 +31,6 @@ const PublicDeckCardList = () => {
                 cards.map((card) => {
                     return <PublicDeckCard card={card} key={card.id} />})
                     :
-                    // <h1 className="noCardsHeader">No Cards Yet</h1>
                     <img className="noCardsLogo" src={noCardsLogo} alt="No Cards Yet" />
                 }
             </div>

@@ -27,7 +27,6 @@ const ExpandMore = styled((props) => {
 
 export default function PublicDeckCard({ card }) {
   const [expanded, setExpanded] = React.useState(false);
-//   const [card, setCard] = useState([]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
