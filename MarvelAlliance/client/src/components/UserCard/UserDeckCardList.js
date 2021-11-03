@@ -10,7 +10,7 @@ import CardSearch from "./CardSearch";
 
 const UserDeckCardList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
-    // that is set by what passed to the hook and a function/method that updates that state/variable
+    // that is set by what passed to the hook and a function/method that updates that state/variable:
   const [cards, setCards] = useState([]);
 
   const {deckId} = useParams();
