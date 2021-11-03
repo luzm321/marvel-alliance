@@ -25,7 +25,6 @@ const PublicDeckList = () => {
         <img className="publicDecksLogo" src={publicDecksLogo} alt="Public Decks" />
         <div className="publicDecks">
             <div className="publicDeckComponent">
-                {console.log('public decks', publicDecks)}
                 {publicDecks.map((publicDeck) => (
                     <PublicDeck publicDeck={publicDeck} key={publicDeck.id} />
                 ))}

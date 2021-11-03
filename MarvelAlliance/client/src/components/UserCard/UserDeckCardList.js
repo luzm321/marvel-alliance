@@ -45,7 +45,6 @@ const UserDeckCardList = () => {
               }
             </div>
             <div className="container justify-content-center">
-                {console.log(cards)}
                 {cards.length !== 0 ?
                 cards.map((card) => {
                     return <UserDeckCard card={card} key={card.id} setCards={setCards} />})

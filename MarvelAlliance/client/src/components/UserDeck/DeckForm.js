@@ -61,7 +61,7 @@ const DeckForm = () => {
         const title = deck.title
         const details = deck.details
 
-        if (typeof title === "undefined" || typeof details === "undefined") {
+        if (typeof title === "undefined" || title === "" || typeof details === "undefined" || details === "") {
             Swal.fire({
             title: "Please provide values for both input fields. 👇",
             icon: "info",
