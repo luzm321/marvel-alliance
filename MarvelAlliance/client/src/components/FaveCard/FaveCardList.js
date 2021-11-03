@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCardsByDeckId } from "../../modules/cardManager";
 import FaveCard from "./FaveCard";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./FaveCard.css";
 import faveCardsLogo from "../../images/faveCardsLogo.PNG";
 
@@ -11,10 +11,12 @@ const FaveCardList = () => {
 
   const [faveCards, setFaveCards] = useState([]);
 
-  const {deckId} = useParams();
   const history = useHistory();
 
   const getFaveCards = () => {
+    // retrieving deckId from faveDeck object that was set in localStorage when user clicks on deck title to render the cards 
+    // associated with each favorite deck:
+    let deckId = parseInt(JSON.parse(localStorage.getItem("faveDeck")).deckId);
     getCardsByDeckId(deckId).then(cards => setFaveCards(cards));
   };
 
@@ -28,7 +30,6 @@ const FaveCardList = () => {
         <div className="container">
             <img className="faveCardsLogo" src={faveCardsLogo} alt="Favorite Cards" />
             <div className="container justify-content-center">
-                {console.log('fave cards', faveCards)}
                 {
                     faveCards.map((faveCard) => {
                         return <FaveCard faveCard={faveCard} key={faveCard.id} />

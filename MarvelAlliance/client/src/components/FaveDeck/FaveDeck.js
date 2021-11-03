@@ -45,7 +45,9 @@ const FaveDeck = ({ faveDeck, setFaveDecks }) => {
         <div className="card deckContainer">
             <header className="card-header">
                 <p className="card-header-title cardHeader">
-                    <Link to={`/faveDecks/${favoriteDeck.id}/cards`}>
+                    {/* setting favoriteDeck object in localStorage when user clicks on deck title to access deckId in when rendering 
+                      the cards associated with each favorite deck*/}
+                    <Link onClick={() => {localStorage.setItem("faveDeck", JSON.stringify(favoriteDeck))}} to={`/faveDecks/${favoriteDeck.id}/cards`}>
                         {favoriteDeck?.deck?.title}
                     </Link>
                 </p>
@@ -56,7 +58,7 @@ const FaveDeck = ({ faveDeck, setFaveDecks }) => {
                 </div>
             </div>
             <footer className="card-footer">
-                <a href="#" className="card-footer-item footerItem">
+                <a onClick={() => {handleDeleteFaveDeck()}} className="card-footer-item footerItem">
                     Unworthy<img className="hammerIconDeck" src="https://img.icons8.com/fluency/48/000000/thor-hammer.png"/>
                 </a>
             </footer>
