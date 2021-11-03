@@ -40,6 +40,16 @@ namespace MarvelAlliance.Controllers
             }
         }
 
+        //https://localhost:5001/api/card/searchCards?criterion={searchTerm}
+        // URL's route contains searchCards and query string has values for criterion key. Search corresponds to the the argument
+        // passed to the [HttpGet("searchCards")] attribute, and criterion corresponds to the method's parameter.
+        // DeckId is passed to method from the client-side/front-end.
+        [HttpGet("searchCards")]
+        public IActionResult SearchCards(string criterion, int deckId)
+        {
+            return Ok(_cardRepository.SearchCards(criterion, deckId));
+        }
+
         //https://localhost:5001/api/card/getCard/id
         [HttpGet("getCard/{id}")]
         public IActionResult GetById(int id)

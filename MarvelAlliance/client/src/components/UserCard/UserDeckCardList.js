@@ -5,11 +5,12 @@ import { useParams, useHistory } from "react-router-dom";
 import "./UserDeckCard.css";
 import myCardsLogo from "../../images/myCardsLogo.PNG";
 import noCardsLogo from "../../images/noCardsLogo.PNG";
+import CardSearch from "./CardSearch";
 
 
 const UserDeckCardList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
-    // that is set by what passed to the hook and a function/method that updates that state/variable
+    // that is set by what passed to the hook and a function/method that updates that state/variable:
   const [cards, setCards] = useState([]);
 
   const {deckId} = useParams();
@@ -20,13 +21,17 @@ const UserDeckCardList = () => {
   };
 
   useEffect(() => {
-    getCards();
+    // if user cards array is empty, get user cards on initial render:
+    if (cards.length === 0) {
+      getCards();
+    }
     // if there are any changes in cards state, re-render component when a new card is added to the deck
     // if (cards.length !== cards.length) {
     //   console.log('cards state updated!');
     //   getCards().then((cards) => setCards(cards));
     // }
-  }, []);
+    // listen for changes in cards state and re-render
+  }, [cards]);
 
 
   return (
@@ -43,6 +48,11 @@ const UserDeckCardList = () => {
                   : 
                     null
               }
+            </div>
+            <div className="container">
+              <div className="row justify-content-center">
+                  <CardSearch cards={cards} setCards={setCards}/>
+              </div>
             </div>
             <div className="container justify-content-center">
                 {cards.length !== 0 ?

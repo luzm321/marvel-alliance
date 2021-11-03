@@ -45,6 +45,7 @@ namespace MarvelAlliance.Controllers
         //https://localhost:5001/api/deck/searchDecks?criterion={searchTerm}
         // URL's route contains searchDecks and query string has values for criterion key. Search corresponds to the the argument
         // passed to the [HttpGet("searchDecks")] attribute, and criterion corresponds to the method's parameter.
+        // UserProfileId is passed to method from the client-side/front-end.
         [HttpGet("searchDecks")]
         public IActionResult SearchDecks(string criterion, int userProfileId )
         {

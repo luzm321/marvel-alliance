@@ -27,7 +27,6 @@ export const getCurrentUserDecks = () => {
           Authorization: `Bearer ${token}`
         }
       }).then((res) => {
-        console.log('response', res);
         if (res.ok) {
           return res.json();
         } else {
