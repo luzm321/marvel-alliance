@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import "./PublicDeckCard.css";
+import "./FaveCard.css";
 
 
 const ExpandMore = styled((props) => {
@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function PublicDeckCard({ card }) {
+export default function FaveCard({ faveCard }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,25 +34,23 @@ export default function PublicDeckCard({ card }) {
 
   return (
     <div className="cardDiv">
-      <Card sx={{ maxWidth: 370 }}>
-        <CardHeader className="charName" style={{ fontFamily: "Kaushan Script, cursive" }}
+      <Card sx={{ maxWidth: 370 }} style={{ fontFamily: "Kaushan Script, cursive", fontSize: "19px" }}>
+        <CardHeader style={{ fontFamily: "Kaushan Script, cursive", fontSize: "21px" }} className="charName"
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="Character Card">
               <img className="marvelIcon" src="https://i.pinimg.com/originals/99/9f/74/999f7467e89a8e4877fea1bdd10eb9d3.jpg" alt="Marvel" />
             </Avatar>
           }
-          title={card.characterName}
+          title={faveCard?.characterName}
         />
         <CardMedia
           component="img"
           height="194"
-          image={card.image}
+          image={faveCard?.image}
           alt="Character Image"
         />
         <CardContent>
-          <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} variant="body2" color="text.secondary">
-            {card.description}
-          </Typography>
+          {faveCard?.description}
         </CardContent>
         <CardActions disableSpacing>       
           <ExpandMore
@@ -67,16 +65,16 @@ export default function PublicDeckCard({ card }) {
           <CardContent>
             <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "25px" }} paragraph>~Character Stats~</Typography>
             <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
-              Health: {card.health} pts
+              Health: {faveCard?.health} pts
             </Typography>
             <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
-              Power: {card.power} pts
+              Power: {faveCard?.power} pts
             </Typography>
             <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
-              Strength: {card.strength} pts
+              Strength: {faveCard?.strength} pts
             </Typography>
             <Typography style={{ fontFamily: "Kaushan Script, cursive", fontSize: "18px" }} paragraph>
-              Speed: {card.speed} pts
+              Speed: {faveCard?.speed} pts
             </Typography>
           </CardContent>
         </Collapse>

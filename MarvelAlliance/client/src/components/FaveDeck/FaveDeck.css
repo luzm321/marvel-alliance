@@ -1,0 +1,55 @@
+.faveDecksLogo {
+  mix-blend-mode: luminosity;
+  width: 400px;
+  height: 240px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  margin: 2em 0em 5em 0em;
+}
+
+.faveDecksLogo:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.deckBox {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.deckContainer {
+  /* width: 45%; */
+  width: 100%;
+  margin: 5.5em 2.5em 4em 2.5em;
+  cursor: pointer;
+}
+
+.deckComponent {
+  display: flex;
+}
+
+.cardHeader {
+  /* margin-left: 3.1em; */
+  margin-left: 2.5em;
+  font-size: 30px;
+}
+
+.cardContent {
+  font-size: 20px;
+}
+
+/* Deck Buttons Styling */
+
+.footerItem {
+  transition: all 0.2s ease-in-out;
+}
+
+.footerItem:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.hammerIconDeck {
+  margin-left: 5px;
+}

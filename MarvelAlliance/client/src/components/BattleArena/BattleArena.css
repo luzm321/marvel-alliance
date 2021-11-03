@@ -55,7 +55,7 @@
   height: 250px;
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
-  margin: 2em 0em 6em 4em;
+  margin: 2em 0em 5.5em 1em;
 }
 
 .battleGroundLogo:hover {
@@ -126,7 +126,7 @@
   font-size: 25px;
   font-family: "Kaushan Script", cursive;
   transition: all 0.2s ease-in-out;
-  margin: 0.5em 2em 2em 3.5em;
+  margin: 2em 2em 2em 3.5em;
 }
 
 .attackBut:hover {
@@ -144,7 +144,7 @@
   font-size: 25px;
   font-family: "Kaushan Script", cursive;
   transition: all 0.2s ease-in-out;
-  margin: 0.5em 0.5em 2em 0em;
+  margin: 2em 0.5em 2em 0em;
 }
 
 .exitBut:hover {
@@ -161,11 +161,18 @@
 /* NPC View Styling */
 
 .npcDiv {
-  margin: 0em 0em 0em 35.5em;
   border: 2px solid black;
   background-color: whitesmoke;
   width: 30%;
   border-radius: 5em;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.9;
+}
+
+.npcDiv:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
 }
 
 .npc {
@@ -205,11 +212,18 @@
 /* Player/User View Styling */
 
 .playerDiv {
-  margin: 5em 0em 1em 35.5em;
+  transition: all 0.2s ease-in-out;
   border: 2px solid black;
   background-color: whitesmoke;
   width: 30%;
   border-radius: 5em;
+  opacity: 0.9;
+}
+
+.playerDiv:hover {
+  transform: scale(1.1);
+  border: solid 2px black;
+  cursor: pointer;
 }
 
 .player {
@@ -254,7 +268,6 @@
   background-color: whitesmoke;
   width: 30%;
   border-radius: 10px;
-  margin: -1.5em 0em -1em 20.5em;
   padding: 5px;
 }
 
@@ -266,6 +279,18 @@
   background-color: whitesmoke;
   width: 38%;
   border-radius: 10px;
-  margin: 2em 0em 1em 18.5em;
   padding: 5px;
+}
+
+.gameViewDiv {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.gameFinishedBannerDiv {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin: 1em 0em 3em 0em;
 }

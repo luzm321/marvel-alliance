@@ -8,8 +8,6 @@ import battleArenaLogo from "../../images/battleArenaLogo.PNG";
 const BattleArena = () => {
 
     const [decks, setDecks] = useState([]);
-    const [showGameViewModal, setShowGameViewModal] = useState(false)
-
     const [deckSelection, setDeckSelection] = useState({
         isDeckSelected: false,
         deckId: 0,
@@ -70,7 +68,7 @@ const BattleArena = () => {
             <div>
                 {
                     deckSelection.isDeckSelected ? 
-                        <DeckDetail deckSelection={deckSelection} setShowGameViewModal={setShowGameViewModal}/> 
+                        <DeckDetail deckSelection={deckSelection} /> 
                     : 
                     null
                 }

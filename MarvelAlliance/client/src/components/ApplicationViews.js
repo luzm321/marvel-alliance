@@ -11,6 +11,8 @@ import DeckForm from "./UserDeck/DeckForm";
 import UserDeckCardForm from "./UserCard/UserDeckCardForm";
 import BattleArena from "./BattleArena/BattleArena";
 import BattleGround from "./BattleArena/BattleGround";
+import FaveDeckList from "./FaveDeck/FaveDeckList";
+import FaveCardList from "./FaveCard/FaveCardList";
 
 export default function ApplicationViews({ isLoggedIn }) {
 
@@ -55,6 +57,14 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/battleGround" exact>
           {isLoggedIn ? <BattleGround /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/faveDecks" exact>
+          {isLoggedIn ? <FaveDeckList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/faveDecks/:deckId(\d+)/cards" exact>
+          {isLoggedIn ? <FaveCardList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">

@@ -10,7 +10,7 @@ import { createNPCHand } from "../../modules/heroApiManager";
 import { getCardsByDeckId } from "../../modules/cardManager";
 
 
-export default function DeckDetail({deckSelection, setShowGameViewModal}) {
+export default function DeckDetail({ deckSelection }) {
 
     const history = useHistory();
 

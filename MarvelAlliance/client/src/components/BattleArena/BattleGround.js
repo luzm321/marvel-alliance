@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
-import { getCardsByDeckId } from "../../modules/cardManager";
-import { createNPCHand } from "../../modules/heroApiManager";
 import { decideWhoStarts, randomIntFromInterval, isOdd } from "../BattleArena/TurnDecider";
 import "./BattleArena.css";
 import battleGroundLogo from "../../images/battleGroundLogo.PNG";
@@ -36,12 +34,6 @@ const BattleGround = () => {
         // dependency array will listen for changes in currentTurn state to enable turn-based mechanic
     }, [currentTurn]);
 
-//    let checkState = () => {
-//         console.log('state', npcHand);
-//         console.log('state', userHand);
-//         console.log('current turn', currentTurn);  
-//         console.log('initial turn', initialTurn, "players choice", headsOrTailsPlayerChoice)     
-//     }   
 
    // method handles the alternating turns between user and npc based on currentTurn's value and whether user loses if there are no more
    // character cards in the userHand array:
@@ -145,6 +137,15 @@ const BattleGround = () => {
         setHeadsOrTailsSegment(false); // once user has chosen head or tails, don't display the heads or tails segment anymore
     }
 
+    let gameFinishedBanner;
+    if (userHand.length === 0) {
+        gameFinishedBanner = <p className="lostGame">You lost against the NPC, better luck next time!</p>
+    } else if (npcHand.length === 0) {
+        gameFinishedBanner = <p className="wonGame">Yay, you won against the NPC! :D</p>
+    } else {
+        gameFinishedBanner = null;
+    }
+
     // displays heads or tails segment for user to select to decide who attacks first:
     let decideHeadsOrTailsSegment;
     if (showHeadsOrTailsSegment) {
@@ -164,7 +165,7 @@ const BattleGround = () => {
     // displays user's view witch current character's stats and determines if user loses based on length of hand in array
     let playerView;
     if (userHand.length === 0) {
-        playerView = <p className="lostGame">You lost against the NPC, better luck next time!</p>
+        playerView = null
     } else {
         playerView = <div className="playerDiv">
         <h1 className="player">~User Character Card~</h1>
@@ -179,7 +180,7 @@ const BattleGround = () => {
     // displays current view of npc hand with character's stats and determines if npc loses based on length of hand in array
     let npcView;
     if (npcHand.length === 0) {
-            npcView = <p className="wonGame">Yay, you won against the NPC! :D</p>
+            npcView = null
     } else {
         npcView = <div className="npcDiv">
         <h1 className="npc">~NPC Character Card~</h1>
@@ -220,9 +221,18 @@ const BattleGround = () => {
     // displays both npc and player/user views with attack button for user:
     if (headsOrTailsPlayerChoice === initialTurn) {
         // if user's choice from heads or tails matches boolean value of turn decider boolean value, then user attacks first:
-        gameView = <>{npcView} {playerView}  {attackButton} <button className="button is-rounded is-light is-danger exitBut" onClick={closeGame}>
-                Exit Game<img className="exitIcon" src="https://img.icons8.com/color/100/000000/fire-exit.png"/>
-            </button>
+        gameView = <>
+                        <div className="gameFinishedBannerDiv">
+                            {gameFinishedBanner}
+                        </div>
+                        <div className="gameViewDiv">
+                            {npcView} 
+                            {playerView} 
+                        </div>
+                        {attackButton} 
+                        <button className="button is-rounded is-light is-danger exitBut" onClick={closeGame}>
+                            Exit Game<img className="exitIcon" src="https://img.icons8.com/color/100/000000/fire-exit.png"/>
+                        </button>
         </>
     } else {
         // else, npc goes first:
@@ -231,7 +241,6 @@ const BattleGround = () => {
 
    return (
         <div className="">
-            {/* <button onClick={() => {checkState()}}>check state</button> */}
             <div>
                <img className="battleGroundLogo" src={battleGroundLogo} alt="Battle Ground" />
             </div>

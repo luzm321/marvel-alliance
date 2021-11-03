@@ -54,7 +54,6 @@ const UserDeckCardForm = () => {
     return (
         <div>
             <div className="field cardForm">
-                {/* <h1 className="cardForm__title">{ cardId ? "~Edit Card Description~" : "~New Card~" }</h1> */}
                 <h1 className="cardForm__title">~New Card~</h1>
                 <input className="input is-focused is-rounded nameInput" type="text" onChange={(event) => handleSetCharacter(event)} placeholder="Marvel Character Name..."></input>
                 <button className="button is-rounded is-outlined is-light getCharacter" onClick={() => getCharacter()}>
