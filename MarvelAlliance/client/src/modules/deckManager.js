@@ -27,6 +27,7 @@ export const getCurrentUserDecks = () => {
           Authorization: `Bearer ${token}`
         }
       }).then((res) => {
+        console.log('response', res);
         if (res.ok) {
           return res.json();
         } else {
@@ -105,4 +106,21 @@ export const deleteDeck = (id) => {
       }
     });
   });
+};
+
+export const searchDecks = (searchTerm, userProfileId) => {
+  return getToken().then((token) => {
+    return fetch(`${deckUrl}/searchDecks?criterion=${searchTerm}&userProfileId=${userProfileId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("An unknown error occurred while trying to search for decks.");
+      }
+    });
+  });    
 };

@@ -67,6 +67,42 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Query string example: Method to search decks in app by Title or Details.
+        // Search() method builds a SQL query that uses the LIKE operator to find records matching the search criterion.
+        public List<Deck> SearchDecks(string criterion, int userProfileId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, UserProfileId, Title, Details
+                                        FROM Deck
+                                        WHERE UserProfileId = @Id 
+                                        AND Title LIKE @Criterion 
+                                        OR UserProfileId = @Id
+                                        AND Details LIKE @Criterion";
+
+                    DbUtils.AddParameter(cmd, "@Criterion", $"%{criterion}%");
+                    DbUtils.AddParameter(cmd, "@Id", userProfileId);
+
+                    var decks = new List<Deck>();
+
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        decks.Add(NewDeckFromReader(reader));
+                    }
+
+                    reader.Close();
+
+                    return decks;
+
+                }
+            }
+        }
+
         // Retrieve a Deck by Id:
         public Deck GetDeckById(int id)
         {
