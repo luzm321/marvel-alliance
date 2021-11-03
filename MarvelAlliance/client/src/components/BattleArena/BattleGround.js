@@ -137,6 +137,15 @@ const BattleGround = () => {
         setHeadsOrTailsSegment(false); // once user has chosen head or tails, don't display the heads or tails segment anymore
     }
 
+    let gameFinishedBanner;
+    if (userHand.length === 0) {
+        gameFinishedBanner = <p className="lostGame">You lost against the NPC, better luck next time!</p>
+    } else if (npcHand.length === 0) {
+        gameFinishedBanner = <p className="wonGame">Yay, you won against the NPC! :D</p>
+    } else {
+        gameFinishedBanner = null;
+    }
+
     // displays heads or tails segment for user to select to decide who attacks first:
     let decideHeadsOrTailsSegment;
     if (showHeadsOrTailsSegment) {
@@ -156,7 +165,7 @@ const BattleGround = () => {
     // displays user's view witch current character's stats and determines if user loses based on length of hand in array
     let playerView;
     if (userHand.length === 0) {
-        playerView = <p className="lostGame">You lost against the NPC, better luck next time!</p>
+        playerView = null
     } else {
         playerView = <div className="playerDiv">
         <h1 className="player">~User Character Card~</h1>
@@ -171,7 +180,7 @@ const BattleGround = () => {
     // displays current view of npc hand with character's stats and determines if npc loses based on length of hand in array
     let npcView;
     if (npcHand.length === 0) {
-            npcView = <p className="wonGame">Yay, you won against the NPC! :D</p>
+            npcView = null
     } else {
         npcView = <div className="npcDiv">
         <h1 className="npc">~NPC Character Card~</h1>
@@ -212,9 +221,18 @@ const BattleGround = () => {
     // displays both npc and player/user views with attack button for user:
     if (headsOrTailsPlayerChoice === initialTurn) {
         // if user's choice from heads or tails matches boolean value of turn decider boolean value, then user attacks first:
-        gameView = <>{npcView} {playerView}  {attackButton} <button className="button is-rounded is-light is-danger exitBut" onClick={closeGame}>
-                Exit Game<img className="exitIcon" src="https://img.icons8.com/color/100/000000/fire-exit.png"/>
-            </button>
+        gameView = <>
+                        <div className="gameFinishedBannerDiv">
+                            {gameFinishedBanner}
+                        </div>
+                        <div className="gameViewDiv">
+                            {npcView} 
+                            {playerView} 
+                        </div>
+                        {attackButton} 
+                        <button className="button is-rounded is-light is-danger exitBut" onClick={closeGame}>
+                            Exit Game<img className="exitIcon" src="https://img.icons8.com/color/100/000000/fire-exit.png"/>
+                        </button>
         </>
     } else {
         // else, npc goes first:
