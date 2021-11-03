@@ -40,6 +40,39 @@ namespace MarvelAlliance.Repositories
             }
         }
 
+        // Query string example: Method to search cards in app by CharacterName:
+        public List<Card> SearchCards(string criterion, int deckId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, DeckId, CharacterName, Health, Power, Speed, Strength, Image, Description
+                                        FROM Card
+                                        WHERE DeckId = @Id 
+                                        AND CharacterName LIKE @Criterion";
+
+                    DbUtils.AddParameter(cmd, "@Criterion", $"%{criterion}%");
+                    DbUtils.AddParameter(cmd, "@Id", deckId);
+
+                    var cards = new List<Card>();
+
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cards.Add(NewCardFromReader(reader));
+                    }
+
+                    reader.Close();
+
+                    return cards;
+
+                }
+            }
+        }
+
         // Retrieve a Card by Id:
         public Card GetCardById(int id)
         {
