@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import "./UserDeckCard.css";
 import myCardsLogo from "../../images/myCardsLogo.PNG";
 import noCardsLogo from "../../images/noCardsLogo.PNG";
+import CardSearch from "./CardSearch";
 
 
 const UserDeckCardList = () => {
@@ -20,13 +21,17 @@ const UserDeckCardList = () => {
   };
 
   useEffect(() => {
-    getCards();
+    // if user cards array is empty, get user cards on initial render:
+    if (cards.length === 0) {
+      getCards();
+    }
     // if there are any changes in cards state, re-render component when a new card is added to the deck
     // if (cards.length !== cards.length) {
     //   console.log('cards state updated!');
     //   getCards().then((cards) => setCards(cards));
     // }
-  }, []);
+    // listen for changes in cards state and re-render
+  }, [cards]);
 
 
   return (
@@ -43,6 +48,11 @@ const UserDeckCardList = () => {
                   : 
                     null
               }
+            </div>
+            <div className="container">
+              <div className="row justify-content-center">
+                  <CardSearch cards={cards} setCards={setCards}/>
+              </div>
             </div>
             <div className="container justify-content-center">
                 {cards.length !== 0 ?

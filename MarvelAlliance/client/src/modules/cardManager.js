@@ -89,3 +89,20 @@ export const patchCard = (card) => {
     });
   });
 };
+
+export const searchCards = (searchTerm, deckId) => {
+  return getToken().then((token) => {
+    return fetch(`${cardUrl}/searchCards?criterion=${searchTerm}&deckId=${deckId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("An unknown error occurred while trying to search for cards.");
+      }
+    });
+  });    
+};
