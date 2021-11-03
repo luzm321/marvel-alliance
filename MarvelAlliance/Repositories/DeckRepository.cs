@@ -69,7 +69,7 @@ namespace MarvelAlliance.Repositories
 
         // Query string example: Method to search decks in app by Title or Details.
         // Search() method builds a SQL query that uses the LIKE operator to find records matching the search criterion.
-        public List<Deck> SearchDecks(string criterion)
+        public List<Deck> SearchDecks(string criterion, int userProfileId)
         {
             using (var conn = Connection)
             {
@@ -78,9 +78,13 @@ namespace MarvelAlliance.Repositories
                 {
                     cmd.CommandText = @"SELECT Id, UserProfileId, Title, Details
                                         FROM Deck
-                                        WHERE Title LIKE @Criterion OR Details LIKE @Criterion";
+                                        WHERE UserProfileId = @Id 
+                                        AND Title LIKE @Criterion 
+                                        OR UserProfileId = @Id
+                                        AND Details LIKE @Criterion";
 
                     DbUtils.AddParameter(cmd, "@Criterion", $"%{criterion}%");
+                    DbUtils.AddParameter(cmd, "@Id", userProfileId);
 
                     var decks = new List<Deck>();
 

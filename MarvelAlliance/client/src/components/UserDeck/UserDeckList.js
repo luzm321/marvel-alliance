@@ -5,6 +5,7 @@ import "./UserDeck.css";
 import { getCurrentUserDecks } from "../../modules/deckManager";
 import { getAllFaveDecks } from "../../modules/faveDeckManager";
 import myDecksLogo from "../../images/myDecksLogo.PNG";
+import DeckSearch from "./DeckSearch";
 
 const UserDeckList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -18,7 +19,10 @@ const UserDeckList = () => {
   };
 
   useEffect(() => {
-    getUserDecks();
+    // if user decks array is empty, get user decks on initial render:
+    if (userDecks.length === 0) {
+      getUserDecks();
+    }
     getAllFaveDecks().then(faveDecks => setFaveDecks(faveDecks));
     // listen for changes in userDecks state and re-render
   }, [userDecks]);
@@ -34,6 +38,11 @@ const UserDeckList = () => {
             onClick={() => {history.push("/myDecks/create")}}>
                 Assemble Deck<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
           </button>
+        </div>
+        <div className="container">
+            <div className="row justify-content-center">
+                <DeckSearch userDecks={userDecks} setUserDecks={setUserDecks}/>
+            </div>
         </div>
         <div className="decks">
             <div className="deckComponent">
