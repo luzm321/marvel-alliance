@@ -4,6 +4,8 @@ import { getUsers } from "../../modules/authManager";
 import "./Home.css";
 import ImageGallery from "./ImageGallery";
 import MarvelAlliance from "../../images/MarvelAlliance.PNG";
+import {StyleRoot} from 'radium';
+import { TadaAnimation } from "../Animations/AnimationHelper";
 
 
 const Home = () => {
@@ -20,22 +22,23 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="homeBgd">
-            <div>
-                {console.log('users', users)}
-                {
-                    users.map(user => {
-                        if(localStorage.getItem("userEmail") === user.email) {
-                            return <UserWelcome user={user.userName} />
-                        }
-                    })
-                }
+        <StyleRoot>
+            <div className="homeBgd">
+                <div>
+                    {
+                        users.map(user => {
+                            if(localStorage.getItem("userEmail") === user.email) {
+                                return <UserWelcome user={user.userName} />
+                            }
+                        })
+                    }
+                </div>
+                <img style={TadaAnimation(2)} className="marvelAlliance" src={MarvelAlliance} alt="Marvel Alliance" />
+                <div className="gallery">
+                    <ImageGallery />
+                </div>
             </div>
-            <img className="marvelAlliance" src={MarvelAlliance} alt="Marvel Alliance" />
-            <div className="gallery">
-                <ImageGallery />
-            </div>
-        </div>
+        </StyleRoot>
     )
 };
 

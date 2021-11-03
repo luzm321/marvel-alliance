@@ -4,37 +4,41 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
+import {StyleRoot} from 'radium';
+import { SlideInUpAnimation } from "../Animations/AnimationHelper";
 
 
 const ImageGallery = () => {
   return (
-    <ImageList sx={{ width: 600, height: 600 }}>
-      <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader style={{ fontSize: "20px", fontFamily: "Kaushan Script, cursive", color: "black"  }} component="div">Marvel Characters</ListSubheader>
-      </ImageListItem>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=248&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={item.title}
-            // subtitle={}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${item.title}`}
-              >
-                {/* <InfoIcon /> */}
-              </IconButton>
-            }
-          />
+    <StyleRoot style={SlideInUpAnimation(2.5)}>
+      <ImageList sx={{ width: 600, height: 600 }}>
+        <ImageListItem key="Subheader" cols={2}>
+          <ListSubheader style={{ fontSize: "20px", fontFamily: "Kaushan Script, cursive", color: "black"  }} component="div">Marvel Characters</ListSubheader>
         </ImageListItem>
-      ))}
-    </ImageList>
+        {itemData.map((item) => (
+          <ImageListItem key={item.img}>
+            <img
+              src={`${item.img}?w=248&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title={item.title}
+              // subtitle={}
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                  aria-label={`info about ${item.title}`}
+                >
+                  {/* <InfoIcon /> */}
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </StyleRoot>
   );
 }
 
@@ -118,7 +122,7 @@ const itemData = [
     title: 'Red Skull'
   },
   {
-    img: 'https://a-static.besthdwallpaper.com/black-panther-erik-killmonger-wallpaper-2560x1600-11745_7.jpg',
+    img: 'https://i.pinimg.com/736x/01/d1/ac/01d1ac9eb6959f34633a7202bbe8c8a9.jpg',
     title: 'Killmonger'
   }
 ];

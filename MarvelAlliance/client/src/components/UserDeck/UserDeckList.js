@@ -6,6 +6,8 @@ import { getCurrentUserDecks } from "../../modules/deckManager";
 import { getAllFaveDecks } from "../../modules/faveDeckManager";
 import myDecksLogo from "../../images/myDecksLogo.PNG";
 import DeckSearch from "./DeckSearch";
+import {StyleRoot} from 'radium';
+import { ZoomInDownAnimation } from "../Animations/AnimationHelper";
 
 const UserDeckList = () => {
     // Array destructuring initializes variables and useState() hook returns an array of 2 things: the initial value of the state variable
@@ -31,49 +33,51 @@ const UserDeckList = () => {
   let i = 0;
 
   return (
-    <div>
-        <img className="myDecksLogo" src={myDecksLogo} alt="My Decks" />
-        <div className="addDeckDiv">
-          <button className="button is-light is-outlined is-rounded addDeckBut" 
-            onClick={() => {history.push("/myDecks/create")}}>
-                Assemble Deck<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
-          </button>
-        </div>
-        <div className="container">
-            <div className="row justify-content-center">
-                <DeckSearch userDecks={userDecks} setUserDecks={setUserDecks}/>
-            </div>
-        </div>
-        <div className="decks">
-            <div className="deckComponent">
-                {
-                      userDecks.map(userDeck => {
-                        // matching id of deck to userFaveDeck deckId
-                        let favoritedDecks = faveDecks.filter((userFaveDeck) => {
-                          if (userDeck.id === userFaveDeck.deckId) {
-                              return userFaveDeck;
-                          }
-                        });
+    <StyleRoot style={ZoomInDownAnimation(2.5)}>
+      <div>
+          <img className="myDecksLogo" src={myDecksLogo} alt="My Decks" />
+          <div className="addDeckDiv">
+            <button className="button is-light is-outlined is-rounded addDeckBut" 
+              onClick={() => {history.push("/myDecks/create")}}>
+                  Assemble Deck<img className="createIcon" src="https://img.icons8.com/offices/80/000000/cards.png" />
+            </button>
+          </div>
+          <div className="container">
+              <div className="row justify-content-center">
+                  <DeckSearch userDecks={userDecks} setUserDecks={setUserDecks}/>
+              </div>
+          </div>
+          <div className="decks">
+              <div className="deckComponent">
+                  {
+                        userDecks.map(userDeck => {
+                          // matching id of deck to userFaveDeck deckId
+                          let favoritedDecks = faveDecks.filter((userFaveDeck) => {
+                            if (userDeck.id === userFaveDeck.deckId) {
+                                return userFaveDeck;
+                            }
+                          });
 
-                        let isFavorite;
-                        // if the found user favorite decks array is empty and clicked, then the boolean value of the isFavorite prop passed
-                        // to UserDeck component below will be true and app will render the colored thor hammer icon and unworthy button on deck
-                          if (typeof favoritedDecks[i] !== 'undefined') {
-                              if (favoritedDecks[i].deckId === userDeck.id) {
-                                  isFavorite = true
-                              }
-                          // if the array is not empty when clicked, then the isFavorite prop passed to UserDeck component below will be 
-                          // false and app will render the empty thor hammer icon and worthy button on the deck
-                          } else {
-                            isFavorite = false
-                          };  
-                                              
-                        return <UserDeck userDeck={userDeck} key={userDeck.id} setUserDecks={setUserDecks} isFavorite={isFavorite} faveDeck={favoritedDecks[i]} />                                                                   
-                      })
-                }
-            </div>
-        </div>
-    </div>
+                          let isFavorite;
+                          // if the found user favorite decks array is empty and clicked, then the boolean value of the isFavorite prop passed
+                          // to UserDeck component below will be true and app will render the colored thor hammer icon and unworthy button on deck
+                            if (typeof favoritedDecks[i] !== 'undefined') {
+                                if (favoritedDecks[i].deckId === userDeck.id) {
+                                    isFavorite = true
+                                }
+                            // if the array is not empty when clicked, then the isFavorite prop passed to UserDeck component below will be 
+                            // false and app will render the empty thor hammer icon and worthy button on the deck
+                            } else {
+                              isFavorite = false
+                            };  
+                                                
+                          return <UserDeck userDeck={userDeck} key={userDeck.id} setUserDecks={setUserDecks} isFavorite={isFavorite} faveDeck={favoritedDecks[i]} />                                                                   
+                        })
+                  }
+              </div>
+          </div>
+      </div>
+    </StyleRoot>
   );
 };
 

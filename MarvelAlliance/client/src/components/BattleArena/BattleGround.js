@@ -4,6 +4,9 @@ import { decideWhoStarts, randomIntFromInterval, isOdd } from "../BattleArena/Tu
 import "./BattleArena.css";
 import battleGroundLogo from "../../images/battleGroundLogo.PNG";
 import Swal from "sweetalert2";
+import {StyleRoot} from 'radium';
+import { BounceAnimation, FlipInYAnimation, ZoomInDownAnimation } from "../Animations/AnimationHelper";
+
 
 const BattleGround = () => {
 
@@ -38,7 +41,6 @@ const BattleGround = () => {
    // method handles the alternating turns between user and npc based on currentTurn's value and whether user loses if there are no more
    // character cards in the userHand array:
    const nextTurn = () => {
-       console.log('next turn');
        if (userHand.length <= 0) {
             setGameIsLost(true);
        }
@@ -47,7 +49,6 @@ const BattleGround = () => {
 
     // method handles npc's turn and npc will attack so long as there are still cards in npcHand array, else, user wins game
    const npcTurn = () => {
-    console.log('npc turn', npcHand[0]);
     if (npcHand.length <= 0) {
         setGameIsWon(true);    
     } else {
@@ -63,7 +64,6 @@ const BattleGround = () => {
 
    // method with logic of attack move:
    const attackAction = () => {
-       console.log('entered attack segment');
         let victimsHand;
         let victim;
         let attacker;
@@ -77,7 +77,6 @@ const BattleGround = () => {
         // Regular Attack Segment:
         // player turn
         if (currentTurn) {
-            console.log('player attacks', "current turn: ", currentTurn);
             victimsHand = npcHand;
             victim = victimsHand[0]; // victim will be first character card in victimsHand array of npc
             attacker = userHand[0]; // attacker will be first character card in userHand array of user
@@ -92,7 +91,6 @@ const BattleGround = () => {
 
         } else {
             // npc turn
-            console.log('npc attacks');
             victimsHand = userHand;
             attacker = npcHand[0];
             victim = victimsHand[0];
@@ -105,25 +103,21 @@ const BattleGround = () => {
         
         // If target dies (user or npc)
         if (victim.health <= 0) {
-            console.log("card died", victim);
             // array.splice(0, 0) won't work for the first item it needs to be array.splice(0, 1) to remove 1st character/index in victimsHand array;
             // victimsHand.splice(victimIndex, victimIndex);
             victimsHand.splice(0, 1);
             if (currentTurn) {
                 //if user has attacked the npc, update npcHand from battleSession with change in health stat
                 // setNpcHand(victimsHand);
-                console.log('player turn over', victimsHand, victimIndex);
                 battleSession["npcHand"] = victimsHand;
                 localStorage.setItem("battleSession", JSON.stringify(battleSession));
             } else {
                 // else if user was attacked by npc, update userHand from battleSession with change in health stat
                 // setUserHand(victimsHand);
-                console.log('pc turn over');
                 battleSession["userHand"] = victimsHand;
                 localStorage.setItem("battleSession", JSON.stringify(battleSession));
             }
         }
-        console.log('attack ends');
         //then proceed to next turn
         nextTurn();
     }
@@ -139,9 +133,9 @@ const BattleGround = () => {
 
     let gameFinishedBanner;
     if (userHand.length === 0) {
-        gameFinishedBanner = <p className="lostGame">You lost against the NPC, better luck next time!</p>
+        gameFinishedBanner = <p style={BounceAnimation(3)} className="lostGame">You lost against the NPC, better luck next time!</p>
     } else if (npcHand.length === 0) {
-        gameFinishedBanner = <p className="wonGame">Yay, you won against the NPC! :D</p>
+        gameFinishedBanner = <p style={BounceAnimation(3)} className="wonGame">Yay, you won against the NPC! :D</p>
     } else {
         gameFinishedBanner = null;
     }
@@ -167,7 +161,7 @@ const BattleGround = () => {
     if (userHand.length === 0) {
         playerView = null
     } else {
-        playerView = <div className="playerDiv">
+        playerView = <div style={FlipInYAnimation(3)} className="playerDiv">
         <h1 className="player">~User Character Card~</h1>
         <p className="playerName">Name: {userHand[0].characterName}</p>
         <p className="playerHealth">Health: {userHand[0].health}</p>
@@ -182,7 +176,7 @@ const BattleGround = () => {
     if (npcHand.length === 0) {
             npcView = null
     } else {
-        npcView = <div className="npcDiv">
+        npcView = <div style={FlipInYAnimation(3)} className="npcDiv">
         <h1 className="npc">~NPC Character Card~</h1>
         <p className="npcName">Name: {npcHand[0].name}</p>
         <p className="npcHealth">Health: {npcHand[0].health}</p>
@@ -192,7 +186,7 @@ const BattleGround = () => {
     }
 
     let attackButton;
-    if (currentTurn) {
+    if (currentTurn && userHand.length !== 0) {
         // if it is user's current turn, display attack button
         attackButton = <button className="button is-rounded is-danger is-light attackBut" onClick={attackAction}>
             Attack<img className="attackIcon" src="https://img.icons8.com/color/100/000000/angry-fist.png"/>
@@ -240,16 +234,18 @@ const BattleGround = () => {
     }
 
    return (
-        <div className="">
-            <div>
-               <img className="battleGroundLogo" src={battleGroundLogo} alt="Battle Ground" />
+       <StyleRoot style={ZoomInDownAnimation(3)}>
+            <div className="">
+                <div>
+                <img className="battleGroundLogo" src={battleGroundLogo} alt="Battle Ground" />
+                </div>
+            { headsOrTailsPlayerChoice === null ? 
+                decideHeadsOrTailsSegment
+            :
+            gameView
+            }
             </div>
-        { headsOrTailsPlayerChoice === null ? 
-               decideHeadsOrTailsSegment
-           :
-           gameView
-        }
-        </div>
+        </StyleRoot>
    );
 };
 

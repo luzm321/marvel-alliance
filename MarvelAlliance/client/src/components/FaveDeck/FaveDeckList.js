@@ -4,6 +4,8 @@ import FaveDeck from "./FaveDeck";
 import "./FaveDeck.css";
 import { getAllFaveDecks } from "../../modules/faveDeckManager";
 import faveDecksLogo from "../../images/faveDecksLogo.PNG";
+import {StyleRoot} from 'radium';
+import { ZoomInDownAnimation } from "../Animations/AnimationHelper";
 
 const FaveDeckList = () => {
     
@@ -19,17 +21,19 @@ const FaveDeckList = () => {
   }, []);
 
   return (
-    <div>
-        <img className="faveDecksLogo" src={faveDecksLogo} alt="Favorite Decks" />
-        <div className="decks">
-            <div className="deckComponent">
-                {console.log('user fave decks', faveDecks)}
-                {faveDecks.map((faveDeck) => (
-                    <FaveDeck faveDeck={faveDeck} key={faveDeck.id} setFaveDecks={setFaveDecks} />
-                ))}
-            </div>
-        </div>
-    </div>
+    <StyleRoot style={ZoomInDownAnimation(3)}>
+      <div>
+          <img className="faveDecksLogo" src={faveDecksLogo} alt="Favorite Decks" />
+          <div className="decks">
+              <div className="deckComponent">
+                  {console.log('user fave decks', faveDecks)}
+                  {faveDecks.map((faveDeck) => (
+                      <FaveDeck faveDeck={faveDeck} key={faveDeck.id} setFaveDecks={setFaveDecks} />
+                  ))}
+              </div>
+          </div>
+      </div>
+    </StyleRoot>
   );
 };
 
