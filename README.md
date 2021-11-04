@@ -76,7 +76,7 @@ Link: https://miro.com/app/board/o9J_lrXNzcA=/
 
 <!-- ![Home Page View](./images/homePage.PNG "Home Page View for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/homePage.PNG" alt="Home Page View" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/homePage.PNG" alt="Home Page View" width="700px" height="600px" />
 </td></tr></table>
 
 ## Image Gallery:
@@ -95,117 +95,117 @@ Link: https://miro.com/app/board/o9J_lrXNzcA=/
 
 <!-- ![My Decks Page](./images/myDecksPage.PNG "My Decks Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myDecksPage.PNG" alt="My Decks Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myDecksPage.PNG" alt="My Decks Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## My Decks View:
 
 <!-- ![My Decks View](./images/homePage.PNG "My Decks View for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myDecks.PNG" alt="My Decks View" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myDecks.PNG" alt="My Decks View" width="700px" height="600px" />
 </td></tr></table>
 
 ## My Cards Page:
 
 <!-- ![My Cards Page](./images/myCardsPage.PNG "My Cards Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myCardsPage.PNG" alt="My Cards Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/myCardsPage.PNG" alt="My Cards Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Marvel Character Card:
 
 <!-- ![Character Card](./images/characterCard.PNG "Character Card for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/characterCard.PNG" alt="Character Card" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/characterCard.PNG" alt="Character Card" width="700px" height="600px" />
 </td></tr></table>
 
 ## Character Card Stats:
 
 <!-- ![Character Card Stats](./images/homePage.PNG "Character Card Stats for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/characterCardStats.PNG" alt="Character Card Stats" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/characterCardStats.PNG" alt="Character Card Stats" width="700px" height="600px" />
 </td></tr></table>
 
 ## Public Decks Page:
 
 <!-- ![Public Decks Page](./images/publicDecksPage.PNG "Public Decks Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicDecksPage.PNG" alt="Public Decks Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicDecksPage.PNG" alt="Public Decks Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Public Cards Page:
 
 <!-- ![Public Cards Page](./images/publicCardsPage.PNG "Public Cards Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCardsPage.PNG" alt="Public Cards Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCardsPage.PNG" alt="Public Cards Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Public Character Card:
 
 <!-- ![Public Character Card Page](./images/publicCharacterCard.PNG "Public Character Card for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCharacterCard.PNG" alt="Public Character Card" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCharacterCard.PNG" alt="Public Character Card" width="700px" height="600px" />
 </td></tr></table>
 
 ## Public Character Stats:
 
 <!-- ![Public Character Stats](./images/publicCharacterStats.PNG "Public Character Stats for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCharacterStats.PNG" alt="Public Character Stats" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/publicCharacterStats.PNG" alt="Public Character Stats" width="700px" height="600px" />
 </td></tr></table>
 
 ## Favorite Decks Page:
 
 <!-- ![Favorite Decks Page](./images/favoriteDecksPage.PNG "Favorite Decks Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/favoriteDecksPage.PNG" alt="Favorite Decks Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/favoriteDecksPage.PNG" alt="Favorite Decks Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Favorite Cards Page:
 
 <!-- ![Favorite Cards Page](./images/favoriteCardsPage.PNG "Favorite Cards Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/favoriteCardsPage.PNG" alt="Favorite Cards Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/favoriteCardsPage.PNG" alt="Favorite Cards Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Battle Arena Page:
 
 <!-- ![Battle Arena Page](./images/battleArenaPage.PNG "Battle Arena Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/battleArenaPage.PNG" alt="Battle Arena Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/battleArenaPage.PNG" alt="Battle Arena Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Deck Selection Details Page:
 
 <!-- ![Deck Selection Details Page](./images/deckSelectionDetailPage.PNG "Deck Selectin Detail Page for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/deckSelectionDetailPage.PNG" alt="Deck Selection Detail Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/deckSelectionDetailPage.PNG" alt="Deck Selection Detail Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Heads Or Tails Selection:
 
 <!-- ![Heads or Tails Selection](./images/headsOrTailsSelection.PNG "Heads or Tails Selection for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/headsOrTailsSelection.PNG" alt="Heads or Tails Selection" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/headsOrTailsSelection.PNG" alt="Heads or Tails Selection" width="700px" height="600px" />
 </td></tr></table>
 
 ## Game View:
 
 <!-- ![Game View](./images/gameViewPage.PNG "Game View for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/gameViewPage.PNG" alt="Game View Page" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/gameViewPage.PNG" alt="Game View Page" width="700px" height="600px" />
 </td></tr></table>
 
 ## Victory View:
 
 <!-- ![Victory View](./images/winningView.PNG "Victory View for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/winningView.PNG" alt="Victory View" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/winningView.PNG" alt="Victory View" width="700px" height="600px" />
 </td></tr></table>
 
 ## Defeat View:
 
 <!-- ![Defeat View](./images/loseView.PNG "Defeat View for Marvel Alliance") -->
 <table><tr><td>
-      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/loseView.PNG" alt="Defeat View" width="520px" height="500px" />
+      <img src="https://github.com/luzm321/marvel-alliance/blob/main/MarvelAlliance/client/src/images/loseView.PNG" alt="Defeat View" width="700px" height="600px" />
 </td></tr></table>
