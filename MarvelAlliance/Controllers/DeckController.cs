@@ -75,7 +75,7 @@ namespace MarvelAlliance.Controllers
             var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
             deck.UserProfileId = currentUser.Id;
             _deckRepository.AddDeck(deck);
-            return CreatedAtAction("Get", new { id = deck.Id }, deck);
+            return CreatedAtAction("Post", new { id = deck.Id }, deck);
         }
 
         // https://localhost:5001/api/deck

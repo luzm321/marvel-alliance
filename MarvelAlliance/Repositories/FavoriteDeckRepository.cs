@@ -11,7 +11,7 @@ namespace MarvelAlliance.Repositories
         public FavoriteDeckRepository(IConfiguration configuration) : base(configuration) { }
 
         // Retrieve List of All Favorite Decks:
-        public List<FavoriteDeck> GetAll()
+        public List<FavoriteDeck> GetAllFaveDecksByUser(int userProfileId)
         {
             using (var conn = Connection)
             {
@@ -23,7 +23,10 @@ namespace MarvelAlliance.Repositories
                                         FROM FavoriteDeck fd
                                         INNER JOIN Deck d 
                                         ON fd.DeckId =  d.Id 
+                                        WHERE @Id = fd.UserProfileId
                                         ORDER BY d.Title";
+
+                    DbUtils.AddParameter(cmd, "@Id", userProfileId);
 
                     var reader = cmd.ExecuteReader();
 

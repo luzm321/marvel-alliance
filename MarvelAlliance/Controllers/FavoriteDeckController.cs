@@ -27,9 +27,12 @@ namespace MarvelAlliance.Controllers
 
         //https://localhost:5001/api/favoriteDeck
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetFaveDecksByUser()
         {
-            return Ok(_faveDeckRepository.GetAll());
+            string fireBaseId = GetCurrentUserFirebaseId();
+            var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
+            var userFaveDecks = _faveDeckRepository.GetAllFaveDecksByUser(currentUser.Id);
+            return Ok(userFaveDecks);
         }
 
         //https://localhost:5001/api/favoriteDeck/id
@@ -55,7 +58,7 @@ namespace MarvelAlliance.Controllers
             var currentUser = _userProfileRepository.GetByFirebaseUserId(fireBaseId);
             faveDeck.UserProfileId = currentUser.Id;
             _faveDeckRepository.AddFaveDeck(faveDeck);
-            return CreatedAtAction("Get", new { id = faveDeck.Id }, faveDeck);
+            return CreatedAtAction("Post", new { id = faveDeck.Id }, faveDeck);
         }
 
         // https://localhost:5001/api/favoriteDeck/id

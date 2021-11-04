@@ -5,7 +5,7 @@ namespace MarvelAlliance.Repositories
 {
     public interface IFavoriteDeckRepository
     {
-        List<FavoriteDeck> GetAll();
+        List<FavoriteDeck> GetAllFaveDecksByUser(int userProfileId);
         FavoriteDeck GetFaveDeckById(int id);
         void AddFaveDeck(FavoriteDeck favoriteDeck);
         void DeleteFaveDeck(int id);
